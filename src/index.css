@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
+@import "tailwindcss";
+
+body{
+    background-color: #F6F6F6;
+    text-transform: capitalize;
+}
+
+html[dir="rtl"] body {
+    font-family: "Tajawal", sans-serif;
+}
+html[dir="ltr"] body {
+    font-family: "Inter", sans-serif;
+}
+
+/* Loading and Animation Styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Pulse animation for loading skeletons */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Chrome / Edge / Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;           
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; 
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #4E8476;      /* اللون المطلوب */
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3d6b5f;      /* درجة أغمق عند الهوفر (اختياري) */
+}
+
+/* Firefox */
+.custom-scrollbar{
+  scrollbar-width: thin;
+  scrollbar-color: #4E8476 transparent; /* thumb ثم track */
+}
+
+/* Print Styles for PDF */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 5mm;
+  }
+
+  body {
+    background-color: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print\\:hidden {
+    display: none !important;
+  }
+
+  /* Ensure the main container fills the page height */
+  .flex.flex-col.min-h-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Page header will repeat on each page */
+  .page-header {
+    border-bottom: 2px solid #e5e7eb;
+    margin-bottom: 10px;
+  }
+
+  /* Content area takes available space */
+  .flex-1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Page footer appears only at the end and pushed to bottom */
+  .page-footer {
+    border-top: 2px solid #e5e7eb;
+    margin-top: auto !important;
+    page-break-before: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Data table inside content */
+  .data-table {
+    page-break-inside: auto;
+  }
+
+  .data-table thead {
+    display: table-header-group;
+  }
+
+  .data-table tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  /* Ensure proper sizing */
+  .data-table th,
+  .data-table td {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+}
+
+/* Custom Scrollbar Styles for Notifications */
+.notifications-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notifications-scroll::-webkit-scrollbar-track {
+  background: #F7FAFC;
+  border-radius: 10px;
+}
+
+.notifications-scroll::-webkit-scrollbar-thumb {
+  background: #CBD5E0;
+  border-radius: 10px;
+}
+
+.notifications-scroll::-webkit-scrollbar-thumb:hover {
+  background: #A0AEC0;
+}

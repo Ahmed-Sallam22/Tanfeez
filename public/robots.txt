@@ -1,0 +1,12 @@
+# Robots.txt for Tanfeez
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tanfeez.com/sitemap.xml
+
+# Disallow private paths
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
