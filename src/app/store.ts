@@ -24,6 +24,7 @@ import { analyticalReportApi } from '@/api/analyticalReport.api';
 import { securityGroupsApi } from '@/api/securityGroups.api';
 import { validationWorkflowApi } from '@/api/validationWorkflow.api';
 import { notificationsApi } from '@/api/notifications.api';
+import { settingsApi } from '@/api/settings.api';
 
 export const store = configureStore({
   reducer: {
@@ -52,6 +53,7 @@ export const store = configureStore({
     [securityGroupsApi.reducerPath]: securityGroupsApi.reducer,
     [validationWorkflowApi.reducerPath]: validationWorkflowApi.reducer,
     [notificationsApi.reducerPath]: notificationsApi.reducer,
+    [settingsApi.reducerPath]: settingsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
@@ -79,6 +81,7 @@ export const store = configureStore({
       securityGroupsApi.middleware,
       validationWorkflowApi.middleware,
       notificationsApi.middleware,
+      settingsApi.middleware,
     ),
 });
 

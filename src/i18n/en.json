@@ -2002,6 +2002,29 @@
   "select_Type_of_reinforcement": "Select Type of Reinforcement",
       "Type_of_reinforcement2": "Reduction type",
   "select_Type_of_reinforcement2": "Select Reduction type",
+  "settings": {
+    "title": "Settings",
+    "description": "Customize your application theme, colors, logo, and cover image",
+    "colors": "Colors",
+    "images": "Images",
+    "primaryColor": "Primary Color",
+    "hoverColor": "Hover Color",
+    "mainLogo": "Main Logo",
+    "mainCover": "Main Cover Image",
+    "preview": "Preview",
+    "hoverPreview": "Hover Preview",
+    "uploadLogo": "Upload Logo",
+    "uploadCover": "Upload Cover",
+    "imageRequirements": "PNG, JPG up to 5MB",
+    "save": "Save Settings",
+    "reset": "Reset",
+    "saving": "Saving...",
+    "savedSuccessfully": "Settings saved successfully!",
+    "saveFailed": "Failed to save settings",
+    "refreshPrompt": "Settings saved! Would you like to refresh the page to see the changes?",
+    "fileTooLarge": "File size must be less than 5MB",
+    "invalidFileType": "Please upload a valid image file"
+  },
   "footer": {
     "copyright": "Tanfeez. All rights reserved."
   }

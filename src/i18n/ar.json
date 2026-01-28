@@ -2001,6 +2001,29 @@
   "select_Type_of_reinforcement": "اختر نوع التعزيز",
     "Type_of_reinforcement2": "نوع التخفيض",
   "select_Type_of_reinforcement2": "اختر نوع التخفيض",
+  "settings": {
+    "title": "الإعدادات",
+    "description": "تخصيص سمة التطبيق والألوان والشعار وصورة الغلاف",
+    "colors": "الألوان",
+    "images": "الصور",
+    "primaryColor": "اللون الأساسي",
+    "hoverColor": "لون التمرير",
+    "mainLogo": "الشعار الرئيسي",
+    "mainCover": "صورة الغلاف الرئيسية",
+    "preview": "معاينة",
+    "hoverPreview": "معاينة التمرير",
+    "uploadLogo": "تحميل الشعار",
+    "uploadCover": "تحميل الغلاف",
+    "imageRequirements": "PNG، JPG حتى 5 ميجابايت",
+    "save": "حفظ الإعدادات",
+    "reset": "إعادة تعيين",
+    "saving": "جاري الحفظ...",
+    "savedSuccessfully": "تم حفظ الإعدادات بنجاح!",
+    "saveFailed": "فشل حفظ الإعدادات",
+    "refreshPrompt": "تم حفظ الإعدادات! هل تريد تحديث الصفحة لرؤية التغييرات؟",
+    "fileTooLarge": "يجب أن يكون حجم الملف أقل من 5 ميجابايت",
+    "invalidFileType": "يرجى تحميل ملف صورة صالح"
+  },
   "footer": {
     "copyright": "تنفيذ. جميع الحقوق محفوظة."
   }

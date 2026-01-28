@@ -13,7 +13,7 @@ import SignIn from "../pages/auth/SignIn";
 // Lazy load dashboard pages
 const Home = lazy(() => import("../pages/dashboard/Home"));
 const DashboardDetails = lazy(
-  () => import("../pages/dashboard/DashboardDetails")
+  () => import("../pages/dashboard/DashboardDetails"),
 );
 
 // Transfer pages
@@ -22,41 +22,41 @@ const AllTransfers = lazy(() => import("@/pages/dashboard/AllTransfers"));
 const TransferDetails = lazy(() => import("@/pages/dashboard/TransferDetails"));
 const PendingTransfer = lazy(() => import("@/pages/dashboard/PendingTransfer"));
 const PendingTransferDetails = lazy(
-  () => import("@/pages/dashboard/PendingTransferDetails")
+  () => import("@/pages/dashboard/PendingTransferDetails"),
 );
 
 // Reservations pages
 const Reservations = lazy(() => import("@/pages/dashboard/Reservations"));
 const ReservationsDetails = lazy(
-  () => import("@/pages/dashboard/ReservationsDetails")
+  () => import("@/pages/dashboard/ReservationsDetails"),
 );
 const PendingReservations = lazy(
-  () => import("@/pages/dashboard/PendingReservations")
+  () => import("@/pages/dashboard/PendingReservations"),
 );
 const PendingReservationsDetails = lazy(
-  () => import("@/pages/dashboard/PendingReservationsDetails")
+  () => import("@/pages/dashboard/PendingReservationsDetails"),
 );
 
 // Fund Request pages
 const FundRequests = lazy(() => import("@/pages/dashboard/FundRequests"));
 const FundRequestsDetails = lazy(
-  () => import("@/pages/dashboard/FundRequestsDetails")
+  () => import("@/pages/dashboard/FundRequestsDetails"),
 );
 const PendingRequests = lazy(() => import("@/pages/dashboard/PendingRequests"));
 const PendingRequestsDetails = lazy(
-  () => import("@/pages/dashboard/PendingRequestsDetails")
+  () => import("@/pages/dashboard/PendingRequestsDetails"),
 );
 
 // Fund Adjustments pages
 const FundAdjustments = lazy(() => import("@/pages/dashboard/FundAdjustments"));
 const FundAdjustmentsDetails = lazy(
-  () => import("@/pages/dashboard/FundAdjustmentsDetails")
+  () => import("@/pages/dashboard/FundAdjustmentsDetails"),
 );
 const PendingAdjustments = lazy(
-  () => import("@/pages/dashboard/PendingAdjustments")
+  () => import("@/pages/dashboard/PendingAdjustments"),
 );
 const PendingAdjustmentsDetails = lazy(
-  () => import("@/pages/dashboard/PendingAdjustmentsDetails")
+  () => import("@/pages/dashboard/PendingAdjustmentsDetails"),
 );
 
 // Other dashboard pages
@@ -65,20 +65,21 @@ const Reports = lazy(() => import("@/pages/dashboard/Reports"));
 const AddWorkFlow = lazy(() => import("@/pages/dashboard/AddWorkFlow"));
 const WorkFlow = lazy(() => import("@/pages/dashboard/WorkFlow"));
 const WorkflowAssignments = lazy(
-  () => import("@/pages/dashboard/WorkflowAssignments")
+  () => import("@/pages/dashboard/WorkflowAssignments"),
 );
 const Chat = lazy(() => import("@/pages/dashboard/Chat"));
 const InvoiceDetails = lazy(() => import("@/pages/dashboard/InvoiceDetails"));
 const UploadInvoice = lazy(() => import("@/pages/dashboard/UploadInvoice"));
 const SegmentConfiguration = lazy(
-  () => import("@/pages/dashboard/SegmentConfiguration")
+  () => import("@/pages/dashboard/SegmentConfiguration"),
 );
 const SecurityGroups = lazy(() => import("@/pages/dashboard/SecurityGroups"));
 const Assumption = lazy(() => import("@/pages/dashboard/Assumption"));
 const AssumptionBuilder = lazy(
-  () => import("@/pages/dashboard/AssumptionBuilder")
+  () => import("@/pages/dashboard/AssumptionBuilder"),
 );
 const TableViewPDF = lazy(() => import("@/pages/dashboard/TableViewPDF"));
+const Settings = lazy(() => import("@/pages/dashboard/Settings"));
 
 // Report pages
 const AnalyticalReport = lazy(() => import("@/pages/reports/AnalyticalReport"));
@@ -447,6 +448,14 @@ export default function AppRoutes() {
             element={
               <RoleProtectedRoute allowedRoles={["superadmin"]}>
                 <SecurityGroups />
+              </RoleProtectedRoute>
+            }
+          />
+          <Route
+            path="settings"
+            element={
+              <RoleProtectedRoute allowedRoles={["superadmin"]}>
+                <Settings />
               </RoleProtectedRoute>
             }
           />

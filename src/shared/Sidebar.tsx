@@ -600,6 +600,32 @@ const SecurityGroupsIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const SettingsIcon = ({ className }: { className?: string }) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path
+      d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M1.66602 10.7327V9.26602C1.66602 8.39935 2.36602 7.69102 3.23935 7.69102C4.73935 7.69102 5.35768 6.61602 4.60768 5.29935C4.17435 4.54935 4.43268 3.57435 5.19102 3.14102L6.63268 2.32435C7.29935 1.93268 8.14935 2.16602 8.54102 2.83268L8.63268 2.98268C9.37435 4.29935 10.616 4.29935 11.366 2.98268L11.4577 2.83268C11.8493 2.16602 12.6993 1.93268 13.366 2.32435L14.8077 3.14102C15.566 3.57435 15.8243 4.54935 15.391 5.29935C14.641 6.61602 15.2593 7.69102 16.7593 7.69102C17.6243 7.69102 18.3327 8.39102 18.3327 9.26602V10.7327C18.3327 11.5993 17.6327 12.3077 16.7593 12.3077C15.2593 12.3077 14.641 13.3827 15.391 14.6993C15.8243 15.4577 15.566 16.4243 14.8077 16.8577L13.366 17.6743C12.6993 18.066 11.8493 17.8327 11.4577 17.166L11.366 17.016C10.6243 15.6993 9.38268 15.6993 8.63268 17.016L8.54102 17.166C8.14935 17.8327 7.29935 18.066 6.63268 17.6743L5.19102 16.8577C4.43268 16.4243 4.17435 15.4493 4.60768 14.6993C5.35768 13.3827 4.73935 12.3077 3.23935 12.3077C2.36602 12.3077 1.66602 11.5993 1.66602 10.7327Z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 type SidebarProps = {
   open?: boolean;
   onClose?: () => void;
@@ -610,7 +636,7 @@ type SidebarProps = {
 const getSections = (
   userRole: string | null,
   userAbilities: string[],
-  t: (key: string) => string
+  t: (key: string) => string,
 ) => {
   // Superadmin sees everything
   if (userRole === "superadmin") {
@@ -728,6 +754,11 @@ const getSections = (
             label: t("securityGroups.title"),
             icon: SecurityGroupsIcon,
           },
+          {
+            to: "/app/settings",
+            label: t("settings.title"),
+            icon: SettingsIcon,
+          },
         ],
       },
       {
@@ -775,7 +806,7 @@ const getSections = (
         to: "/app/analytical-report",
         label: t("analyticalReport.title"),
         icon: ReportsIcon,
-      }
+      },
     );
   }
 
@@ -947,7 +978,7 @@ export default function Sidebar({
   const sections = getSections(
     userRole || null,
     isError || isLoading ? [] : userAbilities,
-    t
+    t,
   );
 
   return (
@@ -1032,13 +1063,13 @@ export default function Sidebar({
                           finalIsActive =
                             window.location.pathname === "/app/transfer" ||
                             window.location.pathname.startsWith(
-                              "/app/transfer/"
+                              "/app/transfer/",
                             );
                         } else if (to === "/app/reservations") {
                           finalIsActive =
                             window.location.pathname === "/app/reservations" ||
                             window.location.pathname.startsWith(
-                              "/app/reservations/"
+                              "/app/reservations/",
                             );
                         } else {
                           finalIsActive = isActive;

@@ -8,6 +8,7 @@ import { useLoginMutation } from "../../api/auth.api";
 import { useAppDispatch } from "../../features/auth/hooks";
 import { setCredentials } from "../../features/auth/authSlice";
 import { useLocale } from "../../hooks/useLocale";
+import { useTheme } from "../../hooks/useTheme";
 import {
   Button,
   Input,
@@ -15,9 +16,9 @@ import {
   Checkbox,
   FormField,
 } from "../../components/ui";
-// import Animation from "../../assets/Animation.png";
-import bgDesigne from "../../assets/bgDesigne.jpg";
-import Logo from "../../assets/Tanfeezletter.png";
+// Default fallbacks
+import bgDesigneFallback from "../../assets/bgDesigne.jpg";
+import LogoFallback from "../../assets/Tanfeezletter.png";
 
 type LoginForm = {
   username: string;
@@ -31,6 +32,11 @@ export default function SignIn() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [login, { isLoading }] = useLoginMutation();
+  const { mainLogo, mainCover } = useTheme();
+
+  // Use theme values or fallback to default assets
+  const Logo = mainLogo || LogoFallback;
+  const bgDesigne = mainCover || bgDesigneFallback;
 
   // Create schema with translated error messages
   const loginSchema = z.object({
