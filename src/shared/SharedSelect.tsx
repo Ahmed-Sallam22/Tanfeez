@@ -180,10 +180,10 @@ export function SharedSelect({
           disabled={disabled}
           className={cn(
             "relative w-full px-3 py-4 bg-white border border-[#E2E2E2] rounded-md cursor-pointer",
-            "focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:border-transparent",
+            "focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent",
             "disabled:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50",
             error ? "border-red-300" : "border-gray-300",
-            isOpen && !error && "ring-2 ring-[#4E8476] border-transparent",
+            isOpen && !error && "ring-2 ring-[var(--color-primary)] border-transparent",
             isRTL ? "text-right" : "text-left"
           )}
         >
@@ -236,7 +236,7 @@ export function SharedSelect({
                     placeholder={searchPlaceholder}
                     dir={isRTL ? "rtl" : "ltr"}
                     className={cn(
-                      "w-full py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:border-transparent",
+                      "w-full py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent",
                       isRTL ? "pr-1 text-right" : "pl-1 text-left"
                     )}
                   />
@@ -266,7 +266,7 @@ export function SharedSelect({
                       "relative w-full capitalize px-3 py-2 text-sm hover:bg-gray-100",
                       "focus:outline-none focus:bg-gray-100",
                       "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent",
-                      value === option.value && "bg-[#f7f7f7] text-[#4E8476]",
+                      value === option.value && "bg-[#f7f7f7] text-[var(--color-primary)]",
                       isRTL ? "text-right" : "text-left"
                     )}
                   >
@@ -279,7 +279,7 @@ export function SharedSelect({
                           isRTL ? "left-0 pl-3" : "right-0 pr-3"
                         )}
                       >
-                        <CheckIcon className="text-[#4E8476]" />
+                        <CheckIcon className="text-[var(--color-primary)]" />
                       </span>
                     )}
                   </button>

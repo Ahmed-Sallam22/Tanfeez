@@ -40,13 +40,13 @@ export default function SegmentConfiguration() {
   const [isPeriodModalOpen, setIsPeriodModalOpen] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState<string>("");
   const [editingSegment, setEditingSegment] = useState<SegmentType | null>(
-    null
+    null,
   );
   const [deletingSegment, setDeletingSegment] = useState<SegmentType | null>(
-    null
+    null,
   );
   const [loadResult, setLoadResult] = useState<LoadSegmentsResponse | null>(
-    null
+    null,
   );
   const [loadFundsResult, setLoadFundsResult] =
     useState<LoadFundsResponse | null>(null);
@@ -136,7 +136,9 @@ export default function SegmentConfiguration() {
     } catch (error) {
       console.error("Failed to save segment type:", error);
       toast.error(
-        editingSegment ? t("messages.updateFailed") : t("messages.createFailed")
+        editingSegment
+          ? t("messages.updateFailed")
+          : t("messages.createFailed"),
       );
     }
   };
@@ -293,10 +295,10 @@ export default function SegmentConfiguration() {
           <button
             type="button"
             onClick={() => handleToggleRequired(segment)}
-            className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:ring-offset-2"
+            className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
             style={{
               backgroundColor: segment.segment_type_is_required
-                ? "#4E8476"
+                ? "var(--color-primary)"
                 : "#e5e7eb",
             }}
           >
@@ -320,10 +322,10 @@ export default function SegmentConfiguration() {
           <button
             type="button"
             onClick={() => handleToggleHierarchy(segment)}
-            className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:ring-offset-2"
+            className="relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
             style={{
               backgroundColor: segment.segment_type_has_hierarchy
-                ? "#4E8476"
+                ? "var(--color-primary)"
                 : "#e5e7eb",
             }}
           >
@@ -375,7 +377,7 @@ export default function SegmentConfiguration() {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64 bg-white rounded-lg">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4E8476]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-primary)]"></div>
         <span className="ml-2 text-gray-600">Loading segments...</span>
       </div>
     );
@@ -390,7 +392,7 @@ export default function SegmentConfiguration() {
         </h1>
         <button
           onClick={handleAddSegment}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-[#4E8476] hover:bg-[#3d6b5f] text-white rounded-lg transition-colors font-medium"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-lg transition-colors font-medium"
         >
           <Plus className="h-5 w-5" />
           {t("segmentConfiguration.addSegment")}
@@ -411,7 +413,7 @@ export default function SegmentConfiguration() {
               onClick={() => setViewMode("list")}
               className={`p-2 rounded-md transition-colors ${
                 viewMode === "list"
-                  ? "bg-white text-[#4E8476] shadow"
+                  ? "bg-white text-[var(--color-primary)] shadow"
                   : "text-gray-600 hover:text-gray-900"
               }`}
               title={t("segmentConfiguration.listView")}
@@ -471,7 +473,7 @@ export default function SegmentConfiguration() {
               onClick={() => setViewMode("card")}
               className={`p-2 rounded-md transition-colors ${
                 viewMode === "card"
-                  ? "bg-white text-[#4E8476] shadow"
+                  ? "bg-white text-[var(--color-primary)] shadow"
                   : "text-gray-600 hover:text-gray-900"
               }`}
               title={t("segmentConfiguration.cardView")}
@@ -529,11 +531,11 @@ export default function SegmentConfiguration() {
                       {segment.segment_type}
                     </p>
                   </div>
-                  <div className="flex items-center gap-1 text-[#4E8476]">
+                  <div className="flex items-center gap-1 text-[var(--color-primary)]">
                     <button
                       type="button"
                       onClick={() => handleEditSegment(segment)}
-                      className="rounded-full hover:bg-[#4E8476]/10 transition-colors p-1"
+                      className="rounded-full hover:bg-[var(--color-primary)]/10 transition-colors p-1"
                       title={t("common.edit")}
                     >
                       <svg
@@ -610,12 +612,12 @@ export default function SegmentConfiguration() {
                   <button
                     type="button"
                     onClick={() => handleToggleRequired(segment)}
-                    className="inline-flex items-center gap-2 rounded-2xl py-2 text-sm font-semibold text-[#4E8476]"
+                    className="inline-flex items-center gap-2 rounded-2xl py-2 text-sm font-semibold text-[var(--color-primary)]"
                   >
                     <span
                       className={`h-4 w-4 rounded-md border flex items-center justify-center ${
                         segment.segment_type_is_required
-                          ? "bg-[#4E8476] border-[#4E8476]"
+                          ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
                           : "border-gray-300 bg-white"
                       }`}
                     >
@@ -643,12 +645,12 @@ export default function SegmentConfiguration() {
                   <button
                     type="button"
                     onClick={() => handleToggleHierarchy(segment)}
-                    className="inline-flex items-center gap-2 rounded-2xl py-2 text-sm font-semibold text-[#4E8476]"
+                    className="inline-flex items-center gap-2 rounded-2xl py-2 text-sm font-semibold text-[var(--color-primary)]"
                   >
                     <span
                       className={`h-4 w-4 rounded-md border flex items-center justify-center ${
                         segment.segment_type_has_hierarchy
-                          ? "bg-[#4E8476] border-[#4E8476]"
+                          ? "bg-[var(--color-primary)] border-[var(--color-primary)]"
                           : "border-gray-300 bg-white"
                       }`}
                     >
@@ -726,7 +728,7 @@ export default function SegmentConfiguration() {
         <button
           onClick={handleLoadSegments}
           disabled={isLoadingSegments}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[#4E8476] hover:bg-[#3d6b5f] text-white rounded-lg transition-colors font-medium shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-lg transition-colors font-medium shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoadingSegments ? (
             <>
@@ -876,8 +878,8 @@ export default function SegmentConfiguration() {
                   ? t("common.updating")
                   : t("common.creating")
                 : editingSegment
-                ? t("common.update")
-                : t("common.create")}
+                  ? t("common.update")
+                  : t("common.create")}
             </Button>
           </div>
         </form>
@@ -1081,7 +1083,7 @@ export default function SegmentConfiguration() {
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                   <svg
-                    className="w-5 h-5 text-[#4E8476]"
+                    className="w-5 h-5 text-[var(--color-primary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -1098,7 +1100,7 @@ export default function SegmentConfiguration() {
                 <div className="space-y-2 text-sm text-gray-700">
                   <p>
                     • Successfully processed{" "}
-                    <span className="font-semibold text-[#4E8476]">
+                    <span className="font-semibold text-[var(--color-primary)]">
                       {loadResult.total_records.toLocaleString()}
                     </span>{" "}
                     segments from control budgets
@@ -1354,7 +1356,7 @@ export default function SegmentConfiguration() {
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                   <svg
-                    className="w-5 h-5 text-[#4E8476]"
+                    className="w-5 h-5 text-[var(--color-primary)]"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

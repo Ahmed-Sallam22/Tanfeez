@@ -187,7 +187,7 @@ export default function WorkFlow() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => navigate("/app/WorkflowAssignments")}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-white text-[#4E8476] border border-[#4E8476] text-sm font-medium rounded-lg hover:bg-[#f0f9f6] transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-white text-[var(--color-primary)] border border-[var(--color-primary)] text-sm font-medium rounded-lg hover:bg-[#f0f9f6] transition-colors"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -198,7 +198,7 @@ export default function WorkFlow() {
           </button>
           <button
             onClick={handleCreateNewWorkflow}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#4E8476] text-white text-sm font-medium rounded-lg hover:bg-[#3d6b5f] transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-primary)] text-white text-sm font-medium rounded-lg hover:bg-[var(--color-primary-hover)] transition-colors"
           >
             <svg
               width="16"

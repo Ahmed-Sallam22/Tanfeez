@@ -122,7 +122,7 @@ export default function AddSegmentsModal({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
+        <div className="sticky top-0 bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Layers className="h-6 w-6" />
             <div>
@@ -151,7 +151,7 @@ export default function AddSegmentsModal({
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={t("securityGroups.searchSegments")}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#4E8476] focus:outline-none"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[var(--color-primary)] focus:outline-none"
             />
           </div>
 
@@ -188,10 +188,10 @@ export default function AddSegmentsModal({
                     className="border-2 border-gray-200 rounded-xl overflow-hidden"
                   >
                     {/* Group Header */}
-                    <div className="bg-gradient-to-r from-[#4E8476]/10 to-[#3d6a5e]/10 p-4">
+                    <div className="bg-gradient-to-r from-[var(--color-primary)]/10 to-[#3d6a5e]/10 p-4">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                          <Shield className="h-5 w-5 text-[#4E8476]" />
+                          <Shield className="h-5 w-5 text-[var(--color-primary)]" />
                           <div>
                             <h3 className="font-semibold text-gray-800">
                               {group.segment_type_name}
@@ -206,9 +206,9 @@ export default function AddSegmentsModal({
                           onClick={() => toggleAllInGroup(group.segments)}
                           className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                             allSelected
-                              ? "bg-[#4E8476] text-white hover:bg-[#3d6a5e]"
+                              ? "bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e]"
                               : someSelected
-                              ? "bg-[#4E8476]/50 text-white hover:bg-[#4E8476]"
+                              ? "bg-[var(--color-primary)]/50 text-white hover:bg-[var(--color-primary)]"
                               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
                           }`}
                         >
@@ -226,15 +226,15 @@ export default function AddSegmentsModal({
                           key={segment.id}
                           className={`flex items-center gap-3 p-3 border-2 rounded-lg cursor-pointer transition-all ${
                             selectedSegments.includes(segment.id)
-                              ? "border-[#4E8476] bg-[#4E8476]/5"
-                              : "border-gray-200 hover:border-[#4E8476]/50"
+                              ? "border-[var(--color-primary)] bg-[var(--color-primary)]/5"
+                              : "border-gray-200 hover:border-[var(--color-primary)]/50"
                           }`}
                         >
                           <input
                             type="checkbox"
                             checked={selectedSegments.includes(segment.id)}
                             onChange={() => toggleSegment(segment.id)}
-                            className="w-5 h-5 text-[#4E8476] rounded focus:ring-[#4E8476]"
+                            className="w-5 h-5 text-[var(--color-primary)] rounded focus:ring-[var(--color-primary)]"
                           />
                           <div className="flex-1 min-w-0">
                             <div className="font-medium text-gray-900 truncate">
@@ -270,7 +270,7 @@ export default function AddSegmentsModal({
             <Button
               onClick={handleSubmit}
               disabled={adding || selectedSegments.length === 0}
-              className="bg-[#4E8476] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
+              className="bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
             >
               {adding
                 ? t("common.adding")

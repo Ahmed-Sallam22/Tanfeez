@@ -41,7 +41,7 @@ function UserChip({ name }: { name: string }) {
   const initial = (name?.trim()?.[0] ?? "?").toUpperCase();
   return (
     <div className="inline-flex items-center gap-2 rounded-full bg-[#EEEEEE]  px-2 py-1 shadow-sm ring-1 ring-black/5">
-      <span className="grid place-items-center h-6 w-6 rounded-full bg-[white] text-[#4E8476] text-xs font-bold">
+      <span className="grid place-items-center h-6 w-6 rounded-full bg-[white] text-[var(--color-primary)] text-xs font-bold">
         {initial}
       </span>
       <span className="text-sm text-gray-700">{name}</span>
@@ -435,7 +435,7 @@ export default function Users() {
               onClick={
                 activeTab === "users" ? handleAddUser : handleAddUserLevel
               }
-              className="flex items-center cursor-pointer gap-1 text-sm bg-[#4E8476] text-white px-2 py-1.5 rounded-md hover:bg-[#4E8476] transition"
+              className="flex items-center cursor-pointer gap-1 text-sm bg-[var(--color-primary)] text-white px-2 py-1.5 rounded-md hover:bg-[var(--color-primary)] transition"
             >
               <svg
                 width="24"
@@ -613,7 +613,7 @@ export default function Users() {
                   !assignmentForm.selectedUserId ||
                   !assignmentForm.selectedLevelOrder
                 }
-                className="w-full px-4 py-2 bg-[#4E8476] text-white rounded-md hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                className="w-full px-4 py-2 bg-[var(--color-primary)] text-white rounded-md hover:bg-blue-700 transition-colors font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
               >
                 {t("users.assign")}
               </button>
@@ -751,7 +751,7 @@ export default function Users() {
                 !userForm.role.trim() ||
                 (!editingUser && !userForm.password.trim())
               }
-              className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-blue-600 rounded-md hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-blue-600 rounded-md hover:bg-blue-700 transition-colors"
             >
               {(isCreating || isUpdating) && (
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
@@ -833,7 +833,7 @@ export default function Users() {
             </button>
             <button
               onClick={handleSaveUserLevel}
-              className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-blue-600 rounded-md hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-blue-600 rounded-md hover:bg-blue-700 transition-colors"
             >
               {editingUserLevel ? t("users.updateLevel") : t("users.addLevel")}
             </button>
@@ -899,7 +899,7 @@ export default function Users() {
                 !assignmentForm.selectedUserId ||
                 !assignmentForm.selectedLevelOrder
               }
-              className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-blue-600 rounded-md hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+              className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-blue-600 rounded-md hover:bg-blue-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
               {isAssigning && (
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white inline-block mr-2"></div>

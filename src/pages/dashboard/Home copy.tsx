@@ -116,7 +116,7 @@
 //         <p className="text-gray-500 mb-4">{message}</p>
 //         <button
 //           onClick={() => window.location.reload()}
-//           className="px-4 py-2 bg-[#4E8476] text-white rounded-lg hover:bg-blue-700 transition-colors"
+//           className="px-4 py-2 bg-[var(--color-primary)] text-white rounded-lg hover:bg-blue-700 transition-colors"
 //         >
 //           {t("common.retry")}
 //         </button>
@@ -249,7 +249,7 @@
 //           year === "2025"
 //             ? accountWiseData.data.Copex.summary.total_fy25_budget
 //             : accountWiseData.data.Copex.summary.total_fy24_budget,
-//         color: "#4E8476",
+//         color: "var(--color-primary)",
 //       },
 //     ];
 //   }, [accountWiseData, year, t]);
@@ -314,7 +314,7 @@
 //       return [
 //         { name: t("home.approved"), value: 0, color: "#007E77" },
 //         { name: t("home.pending"), value: 0, color: "#6BE6E4" },
-//         { name: t("home.rejected"), value: 0, color: "#4E8476" },
+//         { name: t("home.rejected"), value: 0, color: "var(--color-primary)" },
 //       ];
 //     }
 
@@ -332,7 +332,7 @@
 //       {
 //         name: t("home.rejected"),
 //         value: normalData.rejected_transfers,
-//         color: "#4E8476",
+//         color: "var(--color-primary)",
 //       },
 //     ];
 //   }, [dashboardData?.normal, t]);

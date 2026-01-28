@@ -64,7 +64,7 @@ function ErrorState({
         <p className="text-gray-500 mb-4">{message}</p>
         <button
           onClick={() => window.location.reload()}
-          className="px-4 py-2 bg-[#4E8476] text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="px-4 py-2 bg-[var(--color-primary)] text-white rounded-lg hover:bg-blue-700 transition-colors"
         >
           {t("common.retry")}
         </button>
@@ -194,7 +194,7 @@ export default function Home() {
         {
           name: t("home.rejected"),
           value: totalRejected,
-          color: "#4E8476",
+          color: "var(--color-primary)",
         },
       ];
     }
@@ -204,7 +204,7 @@ export default function Home() {
       return [
         { name: t("home.approved"), value: 0, color: "#007E77" },
         { name: t("home.pending"), value: 0, color: "#6BE6E4" },
-        { name: t("home.rejected"), value: 0, color: "#4E8476" },
+        { name: t("home.rejected"), value: 0, color: "var(--color-primary)" },
       ];
     }
 
@@ -222,7 +222,7 @@ export default function Home() {
       {
         name: t("home.rejected"),
         value: normalData.rejected_transfers || 0,
-        color: "#4E8476",
+        color: "var(--color-primary)",
       },
     ];
   }, [dashboardData?.normal, t]);
@@ -261,7 +261,7 @@ export default function Home() {
 
     // Theme colors - 4 colors derived from primary #4E8476
     const COLORS = {
-      primary: "#4E8476", // Main theme green (original)
+      primary: "var(--color-primary)", // Main theme green (original)
       secondary: "#6BA399", // Lighter teal
       tertiary: "#3D6860", // Darker shade
       light: "#8FB8AF", // Light muted green
@@ -510,7 +510,7 @@ export default function Home() {
           {Object.entries(dashboardData.normal.by_transfer_type).map(
             ([type, data]) => {
               const typeColors: Record<string, string[]> = {
-                FAR: ["#007E77", "#6BE6E4", "#4E8476"],
+                FAR: ["#007E77", "#6BE6E4", "var(--color-primary)"],
                 AFR: ["#2E7D32", "#81C784", "#4CAF50"],
                 DFR: ["#D32F2F", "#EF5350", "#E57373"],
                 HFR: ["#F57C00", "#FFB74D", "#FF9800"],
@@ -669,7 +669,7 @@ export default function Home() {
               >
                 <LoadingSkeleton className="h-6 w-32 mb-4" />
                 <div className="h-[280px] flex items-center justify-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4E8476]"></div>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-primary)]"></div>
                 </div>
               </div>
             ))}

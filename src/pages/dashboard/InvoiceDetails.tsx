@@ -816,7 +816,7 @@ export default function InvoiceReview() {
               {!apiInvoiceData && (
                 <button
                   onClick={addRow}
-                  className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-[#4E8476] text-white hover:bg-teal-700"
+                  className="inline-flex items-center gap-2 text-sm px-3 py-1.5 rounded-lg bg-[var(--color-primary)] text-white hover:bg-teal-700"
                 >
                   <Plus className="h-4 w-4" /> {t("invoice.addRow")}
                 </button>
@@ -896,7 +896,7 @@ export default function InvoiceReview() {
               <button
                 onClick={handleSubmit}
                 disabled={isSubmitting || isSaving || isUpdating}
-                className=" flex items-center gap-2 text-md px-3 py-1.5 rounded-lg bg-[#4E8476] text-white hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className=" flex items-center gap-2 text-md px-3 py-1.5 rounded-lg bg-[var(--color-primary)] text-white hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSaving || isUpdating ? (
                   <>

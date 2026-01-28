@@ -235,7 +235,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             type="button"
             onClick={handleBold}
             className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-              selectionState.bold ? 'bg-blue-100 text-[#4E8476]' : 'text-gray-600'
+              selectionState.bold ? 'bg-blue-100 text-[var(--color-primary)]' : 'text-gray-600'
             }`}
             title="Bold (Ctrl+B)"
             disabled={disabled}
@@ -249,7 +249,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             type="button"
             onClick={handleItalic}
             className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-              selectionState.italic ? 'bg-blue-100 text-[#4E8476]' : 'text-gray-600'
+              selectionState.italic ? 'bg-blue-100 text-[var(--color-primary)]' : 'text-gray-600'
             }`}
             title="Italic (Ctrl+I)"
             disabled={disabled}
@@ -263,7 +263,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             type="button"
             onClick={handleUnderline}
             className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-              selectionState.underline ? 'bg-blue-100 text-[#4E8476]' : 'text-gray-600'
+              selectionState.underline ? 'bg-blue-100 text-[var(--color-primary)]' : 'text-gray-600'
             }`}
             title="Underline (Ctrl+U)"
             disabled={disabled}
@@ -277,7 +277,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             type="button"
             onClick={handleStrikethrough}
             className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-              selectionState.strikethrough ? 'bg-blue-100 text-[#4E8476]' : 'text-gray-600'
+              selectionState.strikethrough ? 'bg-blue-100 text-[var(--color-primary)]' : 'text-gray-600'
             }`}
             title="Strikethrough"
             disabled={disabled}
@@ -298,7 +298,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             type="button"
             onClick={() => handleAlignment('left')}
             className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-              selectionState.justifyLeft ? 'bg-blue-100 text-[#4E8476]' : 'text-gray-600'
+              selectionState.justifyLeft ? 'bg-blue-100 text-[var(--color-primary)]' : 'text-gray-600'
             }`}
             title="Align Left"
             disabled={disabled}
@@ -314,7 +314,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             type="button"
             onClick={() => handleAlignment('center')}
             className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-              selectionState.justifyCenter ? 'bg-blue-100 text-[#4E8476]' : 'text-gray-600'
+              selectionState.justifyCenter ? 'bg-blue-100 text-[var(--color-primary)]' : 'text-gray-600'
             }`}
             title="Align Center"
             disabled={disabled}
@@ -330,7 +330,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
             type="button"
             onClick={() => handleAlignment('right')}
             className={`p-2 rounded hover:bg-gray-200 transition-colors ${
-              selectionState.justifyRight ? 'bg-blue-100 text-[#4E8476]' : 'text-gray-600'
+              selectionState.justifyRight ? 'bg-blue-100 text-[var(--color-primary)]' : 'text-gray-600'
             }`}
             title="Align Right"
             disabled={disabled}
@@ -361,7 +361,7 @@ export const RichTextEditor: React.FC<RichTextEditorProps> = ({
         onClick={focusEditor}
         onMouseUp={updateSelectionState}
         onKeyUp={updateSelectionState}
-        className="rich-text-editor-content  p-3 outline-none min-h-[100px] focus:ring-2 focus:ring-[#4E8476] focus:ring-opacity-50"
+        className="rich-text-editor-content  p-3 outline-none min-h-[100px] focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-opacity-50"
         style={{ 
           height: height - 60, // Subtract toolbar height (larger toolbar)
           overflowY: 'auto'

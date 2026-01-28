@@ -81,7 +81,7 @@ export default function GroupRolesTab({ groupId, onUpdate }: GroupRolesTabProps)
         </h3>
         <button 
           onClick={() => setIsAddModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] text-white rounded-xl hover:shadow-lg transition-all"
+          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] text-white rounded-xl hover:shadow-lg transition-all"
         >
           <Plus size={18} />
           {t("securityGroups.createRole")}
@@ -98,12 +98,12 @@ export default function GroupRolesTab({ groupId, onUpdate }: GroupRolesTabProps)
           {roles.roles.map((role) => (
             <div
               key={role.id}
-              className="p-4 bg-gradient-to-br from-white to-gray-50 rounded-xl border-2 border-gray-200 hover:border-[#4E8476]/50 transition-all shadow-sm hover:shadow-md"
+              className="p-4 bg-gradient-to-br from-white to-gray-50 rounded-xl border-2 border-gray-200 hover:border-[var(--color-primary)]/50 transition-all shadow-sm hover:shadow-md"
             >
               <div className="flex justify-between items-start">
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-2">
-                    <Shield size={18} className="text-[#4E8476]" />
+                    <Shield size={18} className="text-[var(--color-primary)]" />
                     <h4 className="font-semibold text-gray-800">
                       {role.role_name}
                     </h4>
@@ -127,7 +127,7 @@ export default function GroupRolesTab({ groupId, onUpdate }: GroupRolesTabProps)
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => handleManageAbilities(role.id, role.role_name)}
-                    className="p-2 text-[#4E8476] hover:bg-[#4E8476]/10 rounded-lg transition-colors"
+                    className="p-2 text-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 rounded-lg transition-colors"
                     title={t("securityGroups.manageAbilities")}
                   >
                     <Settings size={18} />

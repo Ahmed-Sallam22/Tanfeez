@@ -1,8 +1,7 @@
 import React from "react";
 import { cn } from "../../utils/cn";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   loading?: boolean;
@@ -25,7 +24,7 @@ export function Button({
 
   const variantClasses = {
     primary:
-      "bg-[#4E8476] text-white hover:bg-[#4E8476] focus-visible:ring-[#4E8476]",
+      "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] focus-visible:ring-[var(--color-primary)]",
     secondary:
       "bg-[#EEEEEE] text-gray-900 hover:bg-gray-200 focus-visible:ring-gray-500",
     ghost: "hover:bg-gray-100 focus-visible:ring-gray-500",
@@ -43,7 +42,7 @@ export function Button({
         baseClasses,
         variantClasses[variant],
         sizeClasses[size],
-        className
+        className,
       )}
       disabled={disabled || loading}
       {...props}

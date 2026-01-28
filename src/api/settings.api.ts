@@ -25,13 +25,13 @@ export const settingsApi = createApi({
   tagTypes: ['Settings'],
   endpoints: (builder) => ({
     getThemeSettings: builder.query<ThemeSettings, void>({
-      query: () => '/settings/theme',
+      query: () => '/settings/theme/',
       providesTags: ['Settings'],
       transformResponse: (response: ThemeSettingsResponse) => response.data,
     }),
     updateThemeSettings: builder.mutation<ThemeSettings, FormData>({
       query: (formData: FormData) => ({
-        url: '/settings/theme',
+        url: '/settings/theme/',
         method: 'POST',
         body: formData,
       }),

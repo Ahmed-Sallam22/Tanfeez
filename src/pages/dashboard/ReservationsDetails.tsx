@@ -1723,7 +1723,7 @@ export default function ReservationsDetails() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#4E8476]"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[var(--color-primary)]"></div>
           <p className="text-gray-600 text-lg">
             {t("fundAdjustmentsDetails.loadingDetails")}
           </p>
@@ -1739,7 +1739,7 @@ export default function ReservationsDetails() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleBack}
-            className="flex items-center gap-2  cursor-pointer py-2 text-lg text-[#4E8476] hover:text-[#4E8476] "
+            className="flex items-center gap-2  cursor-pointer py-2 text-lg text-[var(--color-primary)] hover:text-[var(--color-primary)] "
           >
             {t("reservations.title")}
           </button>
@@ -1772,7 +1772,7 @@ export default function ReservationsDetails() {
                   <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                     {t("tableColumns.code")}
                   </p>
-                  <p className="text-lg font-semibold text-[#4E8476]">
+                  <p className="text-lg font-semibold text-[var(--color-primary)]">
                     {apiData.summary.code || "-"}
                   </p>
                 </div>
@@ -1996,7 +1996,7 @@ export default function ReservationsDetails() {
                 className={`px-6 py-2 text-sm rounded-lg transition-colors inline-flex items-center gap-2 ${
                   isSubmitDisabled() || isSubmitting
                     ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                    : "bg-[#4E8476] text-white hover:bg-blue-700"
+                    : "bg-[var(--color-primary)] text-white hover:bg-blue-700"
                 }`}
                 title={
                   isSubmitting
@@ -2473,7 +2473,7 @@ export default function ReservationsDetails() {
                     onClick={() =>
                       document.getElementById("file-upload")?.click()
                     }
-                    className="text-[#4E8476] underline hover:text-blue-700 transition-colors"
+                    className="text-[var(--color-primary)] underline hover:text-blue-700 transition-colors"
                   >
                     {t("fundAdjustmentsDetails.browse")}
                   </button>
@@ -2516,7 +2516,7 @@ export default function ReservationsDetails() {
             className={`px-4 py-2 text-sm font-medium border rounded-md transition-colors inline-flex items-center gap-2 ${
               !selectedFile || isUploading
                 ? "bg-gray-300 text-gray-500 border-gray-300 cursor-not-allowed"
-                : "text-white bg-[#4E8476] border-[#4E8476] hover:bg-blue-700"
+                : "text-white bg-[var(--color-primary)] border-[var(--color-primary)] hover:bg-blue-700"
             }`}
           >
             {isUploading ? (
@@ -2700,7 +2700,7 @@ export default function ReservationsDetails() {
                 <textarea
                   value={reasonModalText}
                   onChange={(e) => setReasonModalText(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4E8476] focus:border-transparent resize-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent resize-none"
                   rows={4}
                   placeholder={t("common.enterReasonPlaceholder")}
                 />
@@ -2714,7 +2714,7 @@ export default function ReservationsDetails() {
                 </button>
                 <button
                   onClick={handleSaveReason}
-                  className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-[#4E8476] rounded-md hover:bg-[#3d6b5f] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary-hover)] transition-colors"
                 >
                   {t("common.save")}
                 </button>

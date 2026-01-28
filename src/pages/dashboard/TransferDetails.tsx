@@ -2235,7 +2235,7 @@ export default function TransferDetails() {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex flex-col items-center gap-4">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[#4E8476]"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-[var(--color-primary)]"></div>
           <p className="text-gray-600 text-lg">{t("messages.loadingData")}</p>
         </div>
       </div>
@@ -2249,7 +2249,7 @@ export default function TransferDetails() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleBack}
-            className="flex items-center gap-2  cursor-pointer py-2 text-lg text-[#4E8476] hover:text-[#4E8476] "
+            className="flex items-center gap-2  cursor-pointer py-2 text-lg text-[var(--color-primary)] hover:text-[var(--color-primary)] "
           >
             {t("transfer.title")}
           </button>
@@ -2264,7 +2264,7 @@ export default function TransferDetails() {
           <button
             onClick={handleDownloadExcelTemplate}
             disabled={isDownloadingTemplate}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-[#4E8476] text-white text-sm font-medium rounded-lg hover:bg-[#3d6b5f] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-primary)] text-white text-sm font-medium rounded-lg hover:bg-[var(--color-primary-hover)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isDownloadingTemplate ? (
               <>
@@ -2313,7 +2313,7 @@ export default function TransferDetails() {
                   <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                     {t("tableColumns.code")}
                   </p>
-                  <p className="text-lg font-semibold text-[#4E8476]">
+                  <p className="text-lg font-semibold text-[var(--color-primary)]">
                     {apiData.summary.code || "-"}
                   </p>
                 </div>
@@ -2399,7 +2399,7 @@ export default function TransferDetails() {
             <div className="flex items-center justify-end">
               <button
                 onClick={handleNotesClick}
-                className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#4E8476] to-[#3d6b5f] hover:from-[#3d6b5f] hover:to-[#2d5147] text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[var(--color-primary)] to-[#3d6b5f] hover:from-[#3d6b5f] hover:to-[#2d5147] text-white rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 <svg
                   width="20"
@@ -2572,7 +2572,7 @@ export default function TransferDetails() {
               className={`px-6 py-2 text-sm rounded-lg transition-colors inline-flex items-center gap-2 ${
                 isSubmitDisabled() || isSubmitting
                   ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-                  : "bg-[#4E8476] hover:bg-[#3d6b5f] text-white "
+                  : "bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white "
               }`}
               title={
                 isSubmitting
@@ -2770,7 +2770,7 @@ export default function TransferDetails() {
                     onClick={() =>
                       document.getElementById("file-upload")?.click()
                     }
-                    className="text-[#4E8476] underline hover:text-blue-700 transition-colors"
+                    className="text-[var(--color-primary)] underline hover:text-blue-700 transition-colors"
                   >
                     {t("common.browse")}
                   </button>
@@ -2813,7 +2813,7 @@ export default function TransferDetails() {
             className={`px-4 py-2 text-sm font-medium border rounded-md transition-colors inline-flex items-center gap-2 ${
               !selectedFile || isUploading
                 ? "bg-gray-300 text-gray-500 border-gray-300 cursor-not-allowed"
-                : "text-white bg-[#4E8476] border-[#4E8476] hover:bg-blue-700"
+                : "text-white bg-[var(--color-primary)] border-[var(--color-primary)] hover:bg-blue-700"
             }`}
           >
             {isUploading ? (
@@ -2987,7 +2987,7 @@ export default function TransferDetails() {
                 {!isSubmitted && (
                   <button
                     onClick={() => setIsEditingNotes(true)}
-                    className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-[#4E8476] rounded-md hover:bg-[#3d6b5f] transition-colors flex items-center gap-2"
+                    className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary-hover)] transition-colors flex items-center gap-2"
                   >
                     <svg
                       width="16"
@@ -3033,7 +3033,7 @@ export default function TransferDetails() {
                 <button
                   onClick={handleSaveNotes}
                   disabled={isUpdatingTransfer}
-                  className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-[#4E8476] rounded-md hover:bg-[#3d6b5f] transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary-hover)] transition-colors flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isUpdatingTransfer ? (
                     <>
@@ -3111,7 +3111,7 @@ export default function TransferDetails() {
                 <textarea
                   value={reasonModalText}
                   onChange={(e) => setReasonModalText(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4E8476] focus:border-transparent resize-none"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent resize-none"
                   rows={4}
                   placeholder={t("common.enterReasonPlaceholder")}
                 />
@@ -3125,7 +3125,7 @@ export default function TransferDetails() {
                 </button>
                 <button
                   onClick={handleSaveReason}
-                  className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-[#4E8476] rounded-md hover:bg-[#3d6b5f] transition-colors"
+                  className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary-hover)] transition-colors"
                 >
                   {t("common.save")}
                 </button>

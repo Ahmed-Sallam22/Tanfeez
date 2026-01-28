@@ -787,7 +787,7 @@ export default function FundRequests() {
           </button>
           <button
             onClick={handleCreateRequest}
-            className="px-4 py-2 bg-[#4E8476] text-white rounded-md hover:bg-[#4E8476] transition-colors font-medium"
+            className="px-4 py-2 bg-[var(--color-primary)] text-white rounded-md hover:bg-[var(--color-primary)] transition-colors font-medium"
           >
             {t("fundRequests.createRequest")}
           </button>
@@ -927,7 +927,7 @@ export default function FundRequests() {
             <textarea
               value={reason}
               onChange={(e) => setreason(e.target.value)}
-              className={`w-full px-3 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:border-transparent ${
+              className={`w-full px-3 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent ${
                 validationErrors.reason ? "border-red-500" : "border-[#E2E2E2]"
               }`}
               placeholder={t("fundRequests.enterNotes")}
@@ -959,7 +959,7 @@ export default function FundRequests() {
                 !transfer_type.trim() ||
                 !reason.trim()
               }
-              className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-[#4E8476] rounded-md hover:bg-[#4E8476] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {(isCreating || isUpdating) && (
                 <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
@@ -1021,7 +1021,7 @@ export default function FundRequests() {
                   onClick={() =>
                     document.getElementById("file-upload")?.click()
                   }
-                  className="text-[#4E8476] underline hover:text-[#4E8476] transition-colors"
+                  className="text-[var(--color-primary)] underline hover:text-[var(--color-primary)] transition-colors"
                   disabled={isUploading}
                 >
                   {t("fundRequests.browse")}
@@ -1165,7 +1165,7 @@ export default function FundRequests() {
               onClick={() => setActiveOracleTab("submit")}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeOracleTab === "submit"
-                  ? "border-[#4E8476] text-[#4E8476]"
+                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
             >
@@ -1190,7 +1190,7 @@ export default function FundRequests() {
               onClick={() => setActiveOracleTab("journal")}
               className={`px-6 py-3 text-sm font-medium border-b-2 transition-colors ${
                 activeOracleTab === "journal"
-                  ? "border-[#4E8476] text-[#4E8476]"
+                  ? "border-[var(--color-primary)] text-[var(--color-primary)]"
                   : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
               }`}
             >
@@ -1598,11 +1598,11 @@ export default function FundRequests() {
                 }
               }}
               disabled={isLoadingOracleStatus}
-              className="px-4 py-2 text-sm font-medium text-[#4E8476] bg-[#4E8476]/10 border border-[#4E8476] rounded-md hover:bg-[#4E8476]/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-4 py-2 text-sm font-medium text-[var(--color-primary)] bg-[var(--color-primary)]/10 border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary)]/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {isLoadingOracleStatus ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4E8476]"></div>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[var(--color-primary)]"></div>
                   <span>{t("oracle.refreshing")}</span>
                 </>
               ) : (
@@ -1724,7 +1724,7 @@ export default function FundRequests() {
                               ? "bg-yellow-500 border-yellow-200"
                               : stage.status === "rejected"
                               ? "bg-red-500 border-red-200"
-                              : "bg-[#4E8476] border-blue-200"
+                              : "bg-[var(--color-primary)] border-blue-200"
                           }`}
                         >
                           {stage.status === "approved" ||
@@ -1864,8 +1864,8 @@ export default function FundRequests() {
                                   <span className="font-medium">Rejected</span>
                                 </div>
                               ) : (
-                                <div className="flex items-center text-[#4E8476]">
-                                  <div className="w-4 h-4 bg-[#4E8476] rounded-full mr-1"></div>
+                                <div className="flex items-center text-[var(--color-primary)]">
+                                  <div className="w-4 h-4 bg-[var(--color-primary)] rounded-full mr-1"></div>
                                   <span className="font-medium">
                                     In Progress
                                   </span>
@@ -1987,7 +1987,7 @@ export default function FundRequests() {
                                             {needsTruncation && (
                                               <button
                                                 onClick={toggleExpanded}
-                                                className="mt-1 text-xs text-[#4E8476] hover:text-[#3d6b5f] font-medium transition-colors"
+                                                className="mt-1 text-xs text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium transition-colors"
                                               >
                                                 {isExpanded
                                                   ? t("common.showLess")

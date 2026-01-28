@@ -297,7 +297,7 @@ export default function AddWorkFlow() {
   if (isEditMode && isLoadingWorkflow) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4E8476]"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-primary)]"></div>
         <span className="ml-2 text-gray-600">
           {t("workflow.loadingWorkflow")}
         </span>
@@ -395,7 +395,7 @@ export default function AddWorkFlow() {
             <button
               onClick={handleCreateStage}
               disabled={!stageForm.name || !stageForm.slaHours}
-              className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-[#4E8476] rounded-md hover:bg-[#4E8476] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {isStageEditMode
                 ? t("workflow.updateStage")
@@ -409,7 +409,7 @@ export default function AddWorkFlow() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleBack}
-            className="flex items-center gap-2  cursor-pointer py-2 text-md text-[#4E8476] hover:text-[#4E8476] "
+            className="flex items-center gap-2  cursor-pointer py-2 text-md text-[var(--color-primary)] hover:text-[var(--color-primary)] "
           >
             {t("workflow.workflows")}
           </button>
@@ -439,7 +439,7 @@ export default function AddWorkFlow() {
               isCreating ||
               isUpdating
             }
-            className="flex items-center gap-2 cursor-pointer p-1 text-md bg-[#4E8476] text-white px-4 py-2 rounded-md hover:bg-[#4E8476] transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 cursor-pointer p-1 text-md bg-[var(--color-primary)] text-white px-4 py-2 rounded-md hover:bg-[var(--color-primary)] transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {(isCreating || isUpdating) && (
               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
@@ -540,7 +540,7 @@ export default function AddWorkFlow() {
                   description: e.target.value,
                 }))
               }
-              className={`w-full px-3 py-3 mt-3 border border-[#E2E2E2] resize-none placeholder:text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:border-transparent`}
+              className={`w-full px-3 py-3 mt-3 border border-[#E2E2E2] resize-none placeholder:text-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent`}
               name="description"
               id="description"
             />
@@ -554,7 +554,7 @@ export default function AddWorkFlow() {
 
           <button
             onClick={handleCreateWorkFlow}
-            className="flex items-center gap-2 text-sm  cursor-pointer p-1   text-md bg-[#4E8476] text-white px-4 py-2 rounded-md hover:bg-[#4E8476] transition"
+            className="flex items-center gap-2 text-sm  cursor-pointer p-1   text-md bg-[var(--color-primary)] text-white px-4 py-2 rounded-md hover:bg-[var(--color-primary)] transition"
           >
             {t("workflow.addStage")}
           </button>
@@ -571,11 +571,11 @@ export default function AddWorkFlow() {
                 key={index}
                 className="grid grid-cols-12 gap-4 h-full items-center"
               >
-                <div className="col-span-1 flex items-center h-full justify-center font-semibold text-xl text-[#4E8476] bg-[#F6F6F6] rounded-md p-4">
+                <div className="col-span-1 flex items-center h-full justify-center font-semibold text-xl text-[var(--color-primary)] bg-[#F6F6F6] rounded-md p-4">
                   #{stage.order_index}
                 </div>
                 <div className="col-span-11 bg-[#F6F6F6] rounded-md p-4 flex flex-col gap-4">
-                  <h2 className="text-md font-semibold text-[#4E8476]">
+                  <h2 className="text-md font-semibold text-[var(--color-primary)]">
                     {stage.name}
                   </h2>
                   <div className="flex  gap-2 justify-between ">
@@ -608,7 +608,7 @@ export default function AddWorkFlow() {
                       {/* Edit Icon */}
                       <button
                         onClick={() => handleEditStage(index)}
-                        className="p-1.5 text-[#4E8476] hover:bg-[#4E8476] rounded-md transition-colors"
+                        className="p-1.5 text-[var(--color-primary)] hover:bg-[var(--color-primary)] rounded-md transition-colors"
                         title={t("workflow.editStageTitle")}
                       >
                         <svg

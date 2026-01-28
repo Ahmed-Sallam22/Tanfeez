@@ -111,7 +111,7 @@ export default function ManageAbilitiesModal({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
+        <div className="sticky top-0 bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Shield className="h-6 w-6" />
             <div>
@@ -158,8 +158,8 @@ export default function ManageAbilitiesModal({
                       onClick={() => toggleAbility(ability)}
                       className={`w-full p-4 border-2 rounded-xl transition-all text-left ${
                         isSelected
-                          ? "border-[#4E8476] bg-[#4E8476]/10"
-                          : "border-gray-200 hover:border-[#4E8476]/50"
+                          ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                          : "border-gray-200 hover:border-[var(--color-primary)]/50"
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -167,7 +167,7 @@ export default function ManageAbilitiesModal({
                           <div
                             className={`h-12 w-12 rounded-xl flex items-center justify-center text-2xl ${
                               isSelected
-                                ? "bg-[#4E8476]"
+                                ? "bg-[var(--color-primary)]"
                                 : "bg-gray-200"
                             }`}
                           >
@@ -189,7 +189,7 @@ export default function ManageAbilitiesModal({
                           </div>
                         </div>
                         {isSelected && (
-                          <div className="h-6 w-6 bg-[#4E8476] rounded-full flex items-center justify-center">
+                          <div className="h-6 w-6 bg-[var(--color-primary)] rounded-full flex items-center justify-center">
                             <Check className="h-4 w-4 text-white" />
                           </div>
                         )}
@@ -205,7 +205,7 @@ export default function ManageAbilitiesModal({
                   <span className="text-sm font-medium text-gray-700">
                     {t("securityGroups.selectedAbilities")}:
                   </span>
-                  <span className="text-sm font-bold text-[#4E8476]">
+                  <span className="text-sm font-bold text-[var(--color-primary)]">
                     {selectedAbilities.length} / {availableAbilities.length}
                   </span>
                 </div>
@@ -214,7 +214,7 @@ export default function ManageAbilitiesModal({
                     {selectedAbilities.map((ability) => (
                       <span
                         key={ability}
-                        className="px-3 py-1 bg-[#4E8476]/20 text-[#4E8476] rounded-full text-sm font-medium"
+                        className="px-3 py-1 bg-[var(--color-primary)]/20 text-[var(--color-primary)] rounded-full text-sm font-medium"
                       >
                         {ability}
                       </span>
@@ -234,7 +234,7 @@ export default function ManageAbilitiesModal({
           <Button
             onClick={handleSubmit}
             disabled={updating || isLoading}
-            className="bg-[#4E8476] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
+            className="bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
           >
             {updating ? t("common.saving") : t("common.save")}
           </Button>

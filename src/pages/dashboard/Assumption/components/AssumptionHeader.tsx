@@ -129,7 +129,7 @@ export const AssumptionHeader = ({
         {/* Create New Button */}
         <button
           onClick={onCreateNew}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-[#4E8476] text-white text-sm font-medium rounded-lg hover:bg-[#3d6b5f] transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-primary)] text-white text-sm font-medium rounded-lg hover:bg-[var(--color-primary-hover)] transition-colors"
         >
           <svg
             width="16"

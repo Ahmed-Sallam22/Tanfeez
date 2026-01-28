@@ -187,16 +187,16 @@ const AdvancedTable: React.FC<AdvancedTableProps> = ({
   const containerClasses = [
     "group relative rounded-2xl border shadow-sm transition focus:outline-none focus:ring-2 focus:ring-offset-2",
     isDarkMode
-      ? "border-slate-600 bg-slate-800/80 focus:ring-[#4E8476]/50 focus:ring-offset-slate-900"
-      : "border-slate-200 bg-white focus:ring-[#4E8476]/40 focus:ring-offset-white",
-    onClick ? "cursor-pointer hover:shadow-lg hover:border-[#4E8476]/50" : "",
+      ? "border-slate-600 bg-slate-800/80 focus:ring-[var(--color-primary)]/50 focus:ring-offset-slate-900"
+      : "border-slate-200 bg-white focus:ring-[var(--color-primary)]/40 focus:ring-offset-white",
+    onClick ? "cursor-pointer hover:shadow-lg hover:border-[var(--color-primary)]/50" : "",
   ].join(" ");
 
   const headerClasses = [
     "sticky top-0 z-[1]",
     isDarkMode
       ? "bg-slate-900/80 text-teal-200 border-b border-slate-700"
-      : "bg-gradient-to-r from-[#4E8476] to-[#3d6b5f] text-white border-b border-[#3d6b5f]",
+      : "bg-gradient-to-r from-[var(--color-primary)] to-[#3d6b5f] text-white border-b border-[#3d6b5f]",
   ].join(" ");
 
   const scrollAreaClasses = size === "compact" ? "max-h-60" : "max-h-[65vh]";
@@ -261,7 +261,7 @@ const AdvancedTable: React.FC<AdvancedTableProps> = ({
                     : isDarkMode
                     ? "bg-slate-800/30"
                     : "bg-slate-50/70",
-                  "transition hover:bg-[#4E8476]/10",
+                  "transition hover:bg-[var(--color-primary)]/10",
                 ].join(" ")}
               >
                 {row.map((value, colIndex) => {
@@ -301,7 +301,7 @@ const AdvancedTable: React.FC<AdvancedTableProps> = ({
             "text-[11px] font-medium uppercase tracking-wide opacity-70 transition",
             isDarkMode
               ? "text-teal-200/70 group-hover:text-teal-200"
-              : "text-[#3d6b5f]/70 group-hover:text-[#3d6b5f]",
+              : "text-[#3d6b5f]/70 group-hover:text-[var(--color-primary-hover)]",
           ].join(" ")}
         >
           {t("chatbot.tapToExpand")}
@@ -1106,7 +1106,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
               "transition-all",
               isDragging ? "cursor-grabbing scale-110" : "hover:scale-105",
               // Blue/white theme
-              "bg-gradient-to-br from-[#4E8476] to-[#1e3933]",
+              "bg-gradient-to-br from-[var(--color-primary)] to-[#1e3933]",
             ].join(" ")}
           >
             <img
@@ -1147,7 +1147,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
               className={[
                 "px-5 py-4 flex items-center justify-between",
                 "text-white",
-                "bg-gradient-to-r from-[#4E8476] to-[#3d6b5f]",
+                "bg-gradient-to-r from-[var(--color-primary)] to-[#3d6b5f]",
               ].join(" ")}
             >
               <div className="flex items-center gap-3">
@@ -1254,7 +1254,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
                       className={[
                         "rounded-2xl text-sm leading-snug break-words overflow-hidden",
                         m.isUser
-                          ? "bg-gradient-to-r from-[#4E8476] to-[#3d6b5f] text-white rounded-br-md"
+                          ? "bg-gradient-to-r from-[var(--color-primary)] to-[#3d6b5f] text-white rounded-br-md"
                           : isDarkMode
                           ? "bg-slate-700/80 text-slate-100 rounded-bl-md"
                           : "bg-white/90 text-slate-700 rounded-bl-md",
@@ -1487,7 +1487,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
                     isDarkMode
                       ? "bg-slate-700/50 border-slate-600 text-slate-100 placeholder:text-slate-400"
                       : "bg-white/80 border-black/10 text-slate-700 placeholder:text-slate-400",
-                    "focus:ring-2 focus:ring-[#4E8476]/30 focus:border-[#4E8476]/60",
+                    "focus:ring-2 focus:ring-[var(--color-primary)]/30 focus:border-[var(--color-primary)]/60",
                   ].join(" ")}
                 />
                 <button
@@ -1495,7 +1495,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
                   disabled={(!newMessage.trim() && !selectedFile) || isTyping}
                   className={[
                     "w-10 h-10 rounded-full flex items-center justify-center text-white",
-                    "bg-gradient-to-br from-[#4E8476] to-[#3d6b5f]",
+                    "bg-gradient-to-br from-[var(--color-primary)] to-[#3d6b5f]",
                     "disabled:opacity-50 disabled:cursor-not-allowed",
                     "transition hover:scale-110 shadow",
                   ].join(" ")}
@@ -1532,7 +1532,7 @@ const ChatBot: React.FC<ChatBotProps> = ({
             onClick={(e) => e.stopPropagation()}
             dir={isArabic ? "rtl" : "ltr"}
           >
-            <div className="px-6 py-4 text-white bg-gradient-to-r from-[#4E8476] to-[#3d6b5f] flex items-center justify-between">
+            <div className="px-6 py-4 text-white bg-gradient-to-r from-[var(--color-primary)] to-[#3d6b5f] flex items-center justify-between">
               <h2 className="text-sm font-semibold">
                 {t("chatbot.dataDetails")}
               </h2>

@@ -83,7 +83,7 @@ export default function GroupSegmentsTab({ groupId, onUpdate }: GroupSegmentsTab
         </h3>
         <Button
           onClick={() => setIsAddModalOpen(true)}
-          className="bg-[#4E8476] text-white hover:bg-[#3d6a5e]"
+          className="bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e]"
         >
           <Plus className="h-4 w-4 mr-2" />
           {t("securityGroups.addSegments")}
@@ -100,7 +100,7 @@ export default function GroupSegmentsTab({ groupId, onUpdate }: GroupSegmentsTab
           {segmentGroups.map((group) => (
             <div key={group.segment_type_id} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl border-2 border-gray-200 overflow-hidden">
               {/* Segment Type Header */}
-              <div className="bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] px-4 py-3">
+              <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] px-4 py-3">
                 <div className="flex items-center gap-3">
                   <Shield className="h-5 w-5 text-white" />
                   <h4 className="text-white font-bold text-lg">
@@ -117,7 +117,7 @@ export default function GroupSegmentsTab({ groupId, onUpdate }: GroupSegmentsTab
                 {group.segments.map((segment) => (
                   <div
                     key={segment.id}
-                    className="p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-[#4E8476]/50 hover:shadow-md transition-all"
+                    className="p-4 bg-white border-2 border-gray-200 rounded-xl hover:border-[var(--color-primary)]/50 hover:shadow-md transition-all"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1">

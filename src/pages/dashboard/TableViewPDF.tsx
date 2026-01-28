@@ -5,6 +5,7 @@ import {
   useExportToPdfMutation,
   type TransactionReportData,
 } from "@/api/transfer.api";
+import { useGetThemeSettingsQuery } from "@/api/settings.api";
 // import ksaMinistryLogo from "../../assets/ksa_ministry_text.svg";
 // import saudiLogo from "../../assets/saudilogotext.png";
 import tanfeezLogo from "../../assets/Tanfeezletter.png";
@@ -123,7 +124,7 @@ const cleanHtmlTags = (text: string): string => {
 
 // Helper function to transform API data to table format
 const transformApiDataToTableData = (
-  apiData: TransactionReportData[]
+  apiData: TransactionReportData[],
 ): TableRowData[] => {
   const rows: TableRowData[] = [];
 
@@ -131,7 +132,7 @@ const transformApiDataToTableData = (
     // Helper to format discussionType with direction
     const formatDiscussionType = (
       fromCenter?: number | null,
-      toCenter?: number | null
+      toCenter?: number | null,
     ) => {
       const parts: string[] = [];
 
@@ -180,7 +181,7 @@ const transformApiDataToTableData = (
             transaction.code || transaction.transaction_id?.toString() || "-",
           discussionType: formatDiscussionType(
             transfer.from_center,
-            transfer.to_center
+            transfer.to_center,
           ),
           amount: formatNumber(amountValue),
           description: cleanHtmlTags(transaction.notes ?? ""),
@@ -209,7 +210,7 @@ const transformApiDataToTableData = (
 };
 
 // Page Header Component - will repeat on each printed page
-const PageHeader = () => (
+const PageHeader = ({ logo }: { logo: string }) => (
   <div className="page-header flex items-center justify-between px-10 py-6">
     {/* <div className="flex-shrink-0">
       <img
@@ -219,11 +220,7 @@ const PageHeader = () => (
       />
     </div> */}
     <div className="mx-auto">
-      <img
-        src={tanfeezLogo}
-        alt="شعار تنفيذ"
-        className="h-40 w-auto object-contain"
-      />
+      <img src={logo} alt="شعار تنفيذ" className="h-40 w-auto object-contain" />
     </div>
     {/* <div className="flex-shrink-0">
       <img
@@ -260,8 +257,12 @@ const TableViewPDF = () => {
   const [searchParams] = useSearchParams();
   const { t } = useTranslation();
   const [exportToPdf, { isLoading }] = useExportToPdfMutation();
+  const { data: themeSettings } = useGetThemeSettingsQuery();
   const [tableData, setTableData] = useState<TableRowData[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  // Get logo from theme settings or use default
+  const logo = themeSettings?.main_logo || tanfeezLogo;
 
   useEffect(() => {
     const idsParam = searchParams.get("ids");
@@ -298,7 +299,7 @@ const TableViewPDF = () => {
           response:
             | TransactionReportData
             | TransactionReportData[]
-            | MultipleTransactionsResponse
+            | MultipleTransactionsResponse,
         ) => {
           console.log("Table PDF API Response:", response);
 
@@ -315,7 +316,7 @@ const TableViewPDF = () => {
             dataArray = response.transactions;
             console.log(
               "Multiple transactions response, count:",
-              (response as MultipleTransactionsResponse).count
+              (response as MultipleTransactionsResponse).count,
             );
           }
           // Check if response is directly an array
@@ -353,10 +354,10 @@ const TableViewPDF = () => {
           console.log(
             "Setting table data, length:",
             transformedData.length,
-            transformedData
+            transformedData,
           );
           setTableData(transformedData);
-        }
+        },
       )
       .catch((err) => {
         console.error("Error fetching table data:", err);
@@ -376,7 +377,7 @@ const TableViewPDF = () => {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#4E8476] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-primary)] mx-auto mb-4"></div>
           <p className="text-gray-600">{t("common.loading")}</p>
         </div>
       </div>
@@ -393,7 +394,7 @@ const TableViewPDF = () => {
           </h2>
           <p className="text-gray-600 mb-4">{error}</p>
           <div className="flex items-center justify-center gap-2 text-sm text-gray-500">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4E8476]"></div>
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[var(--color-primary)]"></div>
             <span>{t("messages.redirecting")}</span>
           </div>
         </div>
@@ -444,7 +445,7 @@ const TableViewPDF = () => {
 
       {/* Header - Fixed at top */}
       <div className="flex-shrink-0">
-        <PageHeader />
+        <PageHeader logo={logo} />
       </div>
 
       {/* Main Content - Takes remaining space */}

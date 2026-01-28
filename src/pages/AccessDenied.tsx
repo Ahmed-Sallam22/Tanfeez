@@ -29,7 +29,7 @@ export default function AccessDenied() {
     <div className="min-h-[calc(100vh-120px)]  flex items-center justify-center p-4 rounded-lg">
       {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#4E8476]/5 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[var(--color-primary)]/5 rounded-full blur-3xl" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-teal-500/5 rounded-full blur-3xl" />
       </div>
 
@@ -38,13 +38,13 @@ export default function AccessDenied() {
         <div className="relative mb-8 inline-block">
           <div className="w-28 h-28 mx-auto relative">
             {/* Outer ring animation */}
-            <div className="absolute inset-0 border-4 border-[#4E8476]/20 rounded-full animate-pulse" />
-            <div className="absolute inset-2 border-2 border-[#4E8476]/30 rounded-full" />
+            <div className="absolute inset-0 border-4 border-[var(--color-primary)]/20 rounded-full animate-pulse" />
+            <div className="absolute inset-2 border-2 border-[var(--color-primary)]/30 rounded-full" />
 
             {/* Shield icon */}
             <div className="absolute inset-0 flex items-center justify-center">
               <svg
-                className="w-14 h-14 text-[#4E8476]"
+                className="w-14 h-14 text-[var(--color-primary)]"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ export default function AccessDenied() {
           </div>
 
           {/* X mark overlay */}
-          <div className="absolute bottom-0 right-0 bg-[#4E8476] rounded-full p-1.5 shadow-lg shadow-[#4E8476]/30">
+          <div className="absolute bottom-0 right-0 bg-[var(--color-primary)] rounded-full p-1.5 shadow-lg shadow-[#4E8476]/30">
             <svg
               className="w-4 h-4 text-white"
               fill="none"
@@ -83,7 +83,7 @@ export default function AccessDenied() {
 
         {/* Error Code */}
         <div className="mb-3">
-          <span className="text-7xl font-bold bg-gradient-to-r from-[#4E8476] via-teal-500 to-[#3d6b5f] bg-clip-text text-transparent">
+          <span className="text-7xl font-bold bg-gradient-to-r from-[var(--color-primary)] via-teal-500 to-[#3d6b5f] bg-clip-text text-transparent">
             403
           </span>
         </div>
@@ -105,7 +105,7 @@ export default function AccessDenied() {
         {/* Divider */}
         <div className="flex items-center gap-4 mb-6">
           <div className="flex-1 h-px bg-gradient-to-r from-transparent to-gray-200" />
-          <div className="w-2 h-2 bg-[#4E8476] rounded-full" />
+          <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full" />
           <div className="flex-1 h-px bg-gradient-to-l from-transparent to-gray-200" />
         </div>
 
@@ -135,7 +135,7 @@ export default function AccessDenied() {
 
           <button
             onClick={handleGoHome}
-            className="group relative px-6 py-2.5 bg-[#4E8476] hover:bg-[#3d6b5f] rounded-lg text-white font-medium transition-all duration-300 shadow-md shadow-[#4E8476]/20 hover:shadow-[#4E8476]/30 flex items-center justify-center gap-2"
+            className="group relative px-6 py-2.5 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] rounded-lg text-white font-medium transition-all duration-300 shadow-md shadow-[#4E8476]/20 hover:shadow-[#4E8476]/30 flex items-center justify-center gap-2"
           >
             <svg
               className="w-5 h-5"
@@ -161,7 +161,7 @@ export default function AccessDenied() {
           {t("accessDenied.needHelp", "Need help?")}{" "}
           <a
             href="mailto:support@tanfeez.com"
-            className="text-[#4E8476] hover:text-[#3d6b5f] underline transition-colors"
+            className="text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] underline transition-colors"
           >
             {t("accessDenied.contactSupport", "Contact Support")}
           </a>

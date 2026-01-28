@@ -49,7 +49,7 @@ export const getValidationWorkflowColumns = (
         return (
           <button
             onClick={() => onNameClick(workflow)}
-            className="text-sm text-[#4E8476] font-medium hover:text-[#3d6b5f] hover:underline transition-colors cursor-pointer">
+            className="text-sm text-[var(--color-primary)] font-medium hover:text-[var(--color-primary-hover)] hover:underline transition-colors cursor-pointer">
             {workflow.name}
           </button>
         );

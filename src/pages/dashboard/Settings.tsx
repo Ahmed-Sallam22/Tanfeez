@@ -9,8 +9,8 @@ import {
 } from "../../api/settings.api";
 
 // Default values
-const DEFAULT_COLOR = "#1e3a5f";
-const DEFAULT_HOVER_COLOR = "#2c5282";
+const DEFAULT_COLOR = "#4E8476";
+const DEFAULT_HOVER_COLOR = "#365e53";
 const DEFAULT_LOGO = "/src/assets/Tanfeezletter.png";
 const DEFAULT_COVER = "/src/assets/bgDesigne.jpg";
 
@@ -84,15 +84,23 @@ export default function Settings() {
   const handleSave = async () => {
     try {
       const formData = new FormData();
+
+      // Always send colors
       formData.append("color", color);
       formData.append("hover_color", hoverColor);
 
+      // Send logo - either new file or current URL
       if (logoFile) {
         formData.append("main_logo", logoFile);
+      } else if (logoPreview) {
+        formData.append("main_logo", logoPreview);
       }
 
+      // Send cover - either new file or current URL
       if (coverFile) {
         formData.append("main_cover", coverFile);
+      } else if (coverPreview) {
+        formData.append("main_cover", coverPreview);
       }
 
       await updateThemeSettings(formData).unwrap();
@@ -109,15 +117,52 @@ export default function Settings() {
     }
   };
 
-  const handleReset = () => {
-    setColor(themeSettings?.color || DEFAULT_COLOR);
-    setHoverColor(themeSettings?.hover_color || DEFAULT_HOVER_COLOR);
-    setLogoPreview(themeSettings?.main_logo || DEFAULT_LOGO);
-    setCoverPreview(themeSettings?.main_cover || DEFAULT_COVER);
-    setLogoFile(null);
-    setCoverFile(null);
-    if (logoInputRef.current) logoInputRef.current.value = "";
-    if (coverInputRef.current) coverInputRef.current.value = "";
+  const handleReset = async () => {
+    // Show confirmation popup
+    const confirmReset = window.confirm(
+      t("settings.resetConfirmation") ||
+        "Are you sure you want to reset to default settings? This will restore all colors and images to their original values.",
+    );
+
+    if (!confirmReset) {
+      return; // User cancelled
+    }
+
+    try {
+      // Create FormData with default values
+      const formData = new FormData();
+      formData.append("color", DEFAULT_COLOR);
+      formData.append("hover_color", DEFAULT_HOVER_COLOR);
+      formData.append("main_logo", DEFAULT_LOGO);
+      formData.append("main_cover", DEFAULT_COVER);
+
+      // Send to backend
+      await updateThemeSettings(formData).unwrap();
+
+      // Update UI with defaults
+      setColor(DEFAULT_COLOR);
+      setHoverColor(DEFAULT_HOVER_COLOR);
+      setLogoPreview(DEFAULT_LOGO);
+      setCoverPreview(DEFAULT_COVER);
+      setLogoFile(null);
+      setCoverFile(null);
+      if (logoInputRef.current) logoInputRef.current.value = "";
+      if (coverInputRef.current) coverInputRef.current.value = "";
+
+      toast.success(
+        t("settings.resetSuccessfully") ||
+          "Settings reset to defaults successfully!",
+      );
+
+      // Prompt user to refresh
+      const shouldRefresh = window.confirm(t("settings.refreshPrompt"));
+      if (shouldRefresh) {
+        window.location.reload();
+      }
+    } catch (error) {
+      console.error("Failed to reset settings:", error);
+      toast.error(t("settings.resetFailed") || "Failed to reset settings");
+    }
   };
 
   if (isLoadingSettings) {
@@ -129,7 +174,7 @@ export default function Settings() {
   }
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="p-6  mx-auto">
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 ">

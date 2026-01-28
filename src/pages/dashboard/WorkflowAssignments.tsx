@@ -164,7 +164,7 @@ export default function WorkflowAssignments() {
         <div className="flex items-center gap-2">
           <button
             onClick={handleBack}
-            className="flex items-center gap-2 cursor-pointer py-2 text-md text-[#4E8476] hover:text-[#4E8476]"
+            className="flex items-center gap-2 cursor-pointer py-2 text-md text-[var(--color-primary)] hover:text-[var(--color-primary)]"
           >
             {t("workflow.workflows")}
           </button>
@@ -184,7 +184,7 @@ export default function WorkflowAssignments() {
           <button
             onClick={handleSave}
             disabled={!selectedSecurityGroup || isSaving}
-            className="flex items-center gap-2 cursor-pointer p-1 text-md bg-[#4E8476] text-white px-4 py-2 rounded-md hover:bg-[#4E8476] transition disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 cursor-pointer p-1 text-md bg-[var(--color-primary)] text-white px-4 py-2 rounded-md hover:bg-[var(--color-primary)] transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSaving && (
               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
@@ -338,7 +338,7 @@ export default function WorkflowAssignments() {
                                   : transactionCode
                               )
                             }
-                            className="flex items-center gap-1 text-xs cursor-pointer bg-[#4E8476] text-white px-3 py-1 rounded-md hover:bg-[#3d6d5f] transition"
+                            className="flex items-center gap-1 text-xs cursor-pointer bg-[var(--color-primary)] text-white px-3 py-1 rounded-md hover:bg-[#3d6d5f] transition"
                           >
                             + {t("workflow.addTo")} {transactionCode}
                           </button>
@@ -357,7 +357,7 @@ export default function WorkflowAssignments() {
                                   <button
                                     onClick={() => handleMoveUp(index)}
                                     disabled={index === 0}
-                                    className="p-1 text-[#4E8476] hover:bg-[#4E8476] hover:text-white rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                                    className="p-1 text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded disabled:opacity-30 disabled:cursor-not-allowed"
                                     title={t("workflow.moveUp")}
                                   >
                                     <svg
@@ -376,7 +376,7 @@ export default function WorkflowAssignments() {
                                     disabled={
                                       index === workflowSelections.length - 1
                                     }
-                                    className="p-1 text-[#4E8476] hover:bg-[#4E8476] hover:text-white rounded disabled:opacity-30 disabled:cursor-not-allowed"
+                                    className="p-1 text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white rounded disabled:opacity-30 disabled:cursor-not-allowed"
                                     title={t("workflow.moveDown")}
                                   >
                                     <svg
@@ -392,7 +392,7 @@ export default function WorkflowAssignments() {
                                   </button>
                                 </div>
 
-                                <div className="flex items-center justify-center bg-[#4E8476] text-white font-semibold rounded-md px-3 py-2 min-w-[40px]">
+                                <div className="flex items-center justify-center bg-[var(--color-primary)] text-white font-semibold rounded-md px-3 py-2 min-w-[40px]">
                                   {groupIndex + 1}
                                 </div>
 
@@ -423,7 +423,7 @@ export default function WorkflowAssignments() {
                                           e.target.value
                                         )
                                       }
-                                      className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#4E8476] bg-white"
+                                      className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[var(--color-primary)] bg-white"
                                     >
                                       <option value="">
                                         {t("workflow.allTransactionsNoFilter")}

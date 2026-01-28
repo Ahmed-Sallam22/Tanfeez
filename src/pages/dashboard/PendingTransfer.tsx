@@ -448,7 +448,7 @@ export default function PendingTransfer() {
         {!isDelegateMode ? (
           <button
             onClick={handleDelegateClick}
-            className="flex items-center gap-2 px-3 py-2 bg-[#4E8476] hover:bg-[#3d6b5f] text-white rounded-md transition-colors font-medium"
+            className="flex items-center gap-2 px-3 py-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-md transition-colors font-medium"
           >
             <svg
               width="24"
@@ -470,13 +470,13 @@ export default function PendingTransfer() {
           <div className="flex items-center gap-2">
             <button
               onClick={handleCancelDelegate}
-              className="flex items-center gap-2 px-3 py-2 bg-transparent border border-[#4E8476] text-[#4E8476] hover:bg-[#4E8476] hover:text-white  rounded-md transition-colors font-medium"
+              className="flex items-center gap-2 px-3 py-2 bg-transparent border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white  rounded-md transition-colors font-medium"
             >
               {t("pendingTransfer.cancel")}
             </button>
             <button
               onClick={handleOpenDelegateModal}
-              className="flex items-center gap-2 px-3 py-2 bg-[#4E8476] hover:bg-[#3d6b5f] text-white rounded-md transition-colors font-medium"
+              className="flex items-center gap-2 px-3 py-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-md transition-colors font-medium"
               disabled={selectedTransfers.size === 0}
             >
               {t("pendingTransfer.proceedToDelegate")}
@@ -758,7 +758,7 @@ export default function PendingTransfer() {
                               ? "bg-yellow-500 border-yellow-200"
                               : stage.status === "rejected"
                               ? "bg-red-500 border-red-200"
-                              : "bg-[#4E8476] border-blue-200"
+                              : "bg-[var(--color-primary)] border-blue-200"
                           }`}
                         >
                           {stage.status === "approved" ||
@@ -905,8 +905,8 @@ export default function PendingTransfer() {
                                   </span>
                                 </div>
                               ) : (
-                                <div className="flex items-center text-[#4E8476]">
-                                  <div className="w-4 h-4 bg-[#4E8476] rounded-full mr-1"></div>
+                                <div className="flex items-center text-[var(--color-primary)]">
+                                  <div className="w-4 h-4 bg-[var(--color-primary)] rounded-full mr-1"></div>
                                   <span className="font-medium">
                                     {t(`status.${stage.status}`) ||
                                       stage.status}
@@ -1029,7 +1029,7 @@ export default function PendingTransfer() {
                                             {needsTruncation && (
                                               <button
                                                 onClick={toggleExpanded}
-                                                className="mt-1 text-xs text-[#4E8476] hover:text-[#3d6b5f] font-medium transition-colors"
+                                                className="mt-1 text-xs text-[var(--color-primary)] hover:text-[var(--color-primary-hover)] font-medium transition-colors"
                                               >
                                                 {isExpanded
                                                   ? t("common.showLess")
@@ -1139,7 +1139,7 @@ export default function PendingTransfer() {
             <button
               onClick={handleConfirmDelegate}
               disabled={!delegateUser}
-              className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476] border border-[#4E8476] rounded-md hover:bg-[#3d6b5f] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)] border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary-hover)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {t("pendingTransfer.confirmDelegation")}
             </button>

@@ -136,7 +136,7 @@ export default function AddMemberModal({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
+        <div className="sticky top-0 bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
           <div className="flex items-center gap-3">
             <UserPlus className="h-6 w-6" />
             <h2 className="text-2xl font-bold">{t("securityGroups.addMember")}</h2>
@@ -166,7 +166,7 @@ export default function AddMemberModal({
               <select
                 value={selectedUserId || ""}
                 onChange={(e) => setSelectedUserId(Number(e.target.value))}
-                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#4E8476] focus:outline-none"
+                className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[var(--color-primary)] focus:outline-none"
               >
                 <option value="">{t("securityGroups.selectUser")}</option>
                 {users.map((user: { id: number; username: string; role_name: string }) => (
@@ -198,17 +198,17 @@ export default function AddMemberModal({
                     onClick={() => toggleRole(role.id)}
                     className={`p-4 border-2 rounded-xl transition-all text-left ${
                       selectedRoles.includes(role.id)
-                        ? "border-[#4E8476] bg-[#4E8476]/10"
-                        : "border-gray-200 hover:border-[#4E8476]/50"
+                        ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                        : "border-gray-200 hover:border-[var(--color-primary)]/50"
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Shield className="h-4 w-4 text-[#4E8476]" />
+                        <Shield className="h-4 w-4 text-[var(--color-primary)]" />
                         <span className="font-medium">{role.role_name}</span>
                       </div>
                       {selectedRoles.includes(role.id) && (
-                        <div className="h-5 w-5 bg-[#4E8476] rounded-full flex items-center justify-center">
+                        <div className="h-5 w-5 bg-[var(--color-primary)] rounded-full flex items-center justify-center">
                           <span className="text-white text-xs">✓</span>
                         </div>
                       )}
@@ -230,8 +230,8 @@ export default function AddMemberModal({
                 onClick={() => setAccessMode("all_group_segments")}
                 className={`p-4 border-2 rounded-xl transition-all ${
                   accessMode === "all_group_segments"
-                    ? "border-[#4E8476] bg-[#4E8476]/10"
-                    : "border-gray-200 hover:border-[#4E8476]/50"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                    : "border-gray-200 hover:border-[var(--color-primary)]/50"
                 }`}
               >
                 <div className="font-medium">{t("securityGroups.allGroupSegments")}</div>
@@ -244,8 +244,8 @@ export default function AddMemberModal({
                 onClick={() => setAccessMode("restricted_segments")}
                 className={`flex-1 p-4 border-2 rounded-xl transition-all ${
                   accessMode === "restricted_segments"
-                    ? "border-[#4E8476] bg-[#4E8476]/10"
-                    : "border-gray-200 hover:border-[#4E8476]/50"
+                    ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                    : "border-gray-200 hover:border-[var(--color-primary)]/50"
                 }`}
               >
                 <div className="font-medium">{t("securityGroups.specificSegments")}</div>
@@ -285,7 +285,7 @@ export default function AddMemberModal({
                               type="checkbox"
                               checked={selectedSegments.includes(segment.id)}
                               onChange={() => toggleSegment(segment.id)}
-                              className="w-4 h-4 text-[#4E8476] rounded focus:ring-[#4E8476]"
+                              className="w-4 h-4 text-[var(--color-primary)] rounded focus:ring-[var(--color-primary)]"
                             />
                             <span className="text-sm">
                               {segment.segment_code} - {segment.segment_name}
@@ -310,7 +310,7 @@ export default function AddMemberModal({
               onChange={(e) => setNotes(e.target.value)}
               rows={3}
               placeholder={t("securityGroups.addNotesPlaceholder")}
-              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#4E8476] focus:outline-none resize-none"
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[var(--color-primary)] focus:outline-none resize-none"
             />
           </div>
         </div>
@@ -323,7 +323,7 @@ export default function AddMemberModal({
           <Button
             onClick={handleSubmit}
             disabled={adding || !selectedUserId || selectedRoles.length === 0}
-            className="bg-[#4E8476] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
+            className="bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
           >
             {adding ? t("common.adding") : t("securityGroups.addMember")}
           </Button>

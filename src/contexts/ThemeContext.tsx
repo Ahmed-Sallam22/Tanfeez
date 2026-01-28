@@ -4,8 +4,8 @@ import { ThemeContext, type ThemeContextType } from "./themeContext";
 
 // Default theme values
 const DEFAULT_THEME = {
-  color: "#1e3a5f",
-  hoverColor: "#2c5282",
+  color: "#4E8476",
+  hoverColor:"#365e53",
   mainLogo: "/src/assets/Tanfeezletter.png",
   mainCover: "/src/assets/bgDesigne.jpg",
 };
@@ -21,9 +21,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     isLoading,
   };
 
-  // Apply theme colors to CSS variables
+  // Apply theme colors to CSS variables (always set them, even on error)
   useEffect(() => {
-    if (!isLoading && theme.color) {
+    // Set CSS variables as soon as we have values (from API or defaults)
+    if (!isLoading) {
       document.documentElement.style.setProperty(
         "--color-primary",
         theme.color,
@@ -34,6 +35,31 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       );
     }
   }, [theme.color, theme.hoverColor, isLoading]);
+
+  // Set default CSS variables immediately on mount and on error
+  useEffect(() => {
+    // Set defaults immediately
+    document.documentElement.style.setProperty(
+      "--color-primary",
+      DEFAULT_THEME.color,
+    );
+    document.documentElement.style.setProperty(
+      "--color-primary-hover",
+      DEFAULT_THEME.hoverColor,
+    );
+  }, []);
+
+  // Show loading page while fetching theme
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen bg-gray-50">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-16 w-16 border-b-4 border-t-4 border-primary-600 mb-4"></div>
+          <p className="text-gray-600 text-lg font-medium">Loading Theme...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>

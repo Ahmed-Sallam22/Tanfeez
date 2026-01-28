@@ -68,7 +68,7 @@ export default function AddRoleModal({
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
+        <div className="sticky top-0 bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] text-white p-6 rounded-t-2xl flex items-center justify-between">
           <div className="flex items-center gap-3">
             <ShieldPlus className="h-6 w-6" />
             <h2 className="text-2xl font-bold">{t("securityGroups.addRole")}</h2>
@@ -108,8 +108,8 @@ export default function AddRoleModal({
                     onClick={() => setSelectedRoleId(role.role_id)}
                     className={`w-full p-4 border-2 rounded-xl transition-all text-left ${
                       selectedRoleId === role.role_id
-                        ? "border-[#4E8476] bg-[#4E8476]/10"
-                        : "border-gray-200 hover:border-[#4E8476]/50"
+                        ? "border-[var(--color-primary)] bg-[var(--color-primary)]/10"
+                        : "border-gray-200 hover:border-[var(--color-primary)]/50"
                     }`}
                   >
                     <div className="flex items-center justify-between">
@@ -117,7 +117,7 @@ export default function AddRoleModal({
                         <div
                           className={`h-10 w-10 rounded-lg flex items-center justify-center ${
                             selectedRoleId === role.role_id
-                              ? "bg-[#4E8476]"
+                              ? "bg-[var(--color-primary)]"
                               : "bg-gray-200"
                           }`}
                         >
@@ -141,7 +141,7 @@ export default function AddRoleModal({
                         </div>
                       </div>
                       {selectedRoleId === role.role_id && (
-                        <div className="h-6 w-6 bg-[#4E8476] rounded-full flex items-center justify-center">
+                        <div className="h-6 w-6 bg-[var(--color-primary)] rounded-full flex items-center justify-center">
                           <span className="text-white text-sm">✓</span>
                         </div>
                       )}
@@ -169,7 +169,7 @@ export default function AddRoleModal({
           <Button
             onClick={handleSubmit}
             disabled={adding || !selectedRoleId}
-            className="bg-[#4E8476] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
+            className="bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
           >
             {adding ? t("common.adding") : t("securityGroups.addRole")}
           </Button>

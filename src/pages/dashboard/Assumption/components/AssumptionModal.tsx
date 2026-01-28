@@ -142,7 +142,7 @@ export const AssumptionModal = ({
           <button
             onClick={onSave}
             disabled={isLoading}
-            className="px-4 py-2 text-sm font-medium text-white bg-[#4E8476]  rounded-md hover:bg-[#3d6b5f] transition-colors disabled:opacity-50 flex items-center gap-2"
+            className="px-4 py-2 text-sm font-medium text-white bg-[var(--color-primary)]  rounded-md hover:bg-[var(--color-primary-hover)] transition-colors disabled:opacity-50 flex items-center gap-2"
           >
             {isLoading && (
               <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">

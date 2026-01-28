@@ -58,7 +58,7 @@ export default function SessionExpiredModal() {
         <div className="flex justify-center">
           <button
             onClick={handleLogin}
-            className="px-6 py-2 bg-[#4E8476] text-white rounded-md hover:bg-[#4E8476] transition-colors font-medium"
+            className="px-6 py-2 bg-[var(--color-primary)] text-white rounded-md hover:bg-[var(--color-primary)] transition-colors font-medium"
           >
             {t("sessionExpired.loginButton")}
           </button>

@@ -32,7 +32,7 @@ export default function GroupDetailsPanel({
   return (
     <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] p-6 text-white">
+      <div className="bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] p-6 text-white">
         <div className="flex items-start justify-between">
           <div className="flex-1">
             <h2 className="text-2xl font-bold mb-2">{group.group_name}</h2>
@@ -81,15 +81,15 @@ export default function GroupDetailsPanel({
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-6 py-4 font-semibold transition-all relative ${
                 activeTab === tab.id
-                  ? "text-[#4E8476] bg-white border-b-2 border-[#4E8476]"
-                  : "text-gray-600 hover:text-[#4E8476] hover:bg-gray-100"
+                  ? "text-[var(--color-primary)] bg-white border-b-2 border-[var(--color-primary)]"
+                  : "text-gray-600 hover:text-[var(--color-primary)] hover:bg-gray-100"
               }`}
             >
               <tab.icon className="h-5 w-5" />
               {tab.label}
               <span className={`px-2 py-0.5 rounded-full text-xs ${
                 activeTab === tab.id
-                  ? "bg-[#4E8476]/10 text-[#4E8476]"
+                  ? "bg-[var(--color-primary)]/10 text-[var(--color-primary)]"
                   : "bg-gray-200 text-gray-600"
               }`}>
                 {tab.count}

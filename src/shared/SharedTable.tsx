@@ -957,7 +957,7 @@ export function SharedTable({
               ) : showSaveButton && onSave ? (
                 <button
                   onClick={onSave}
-                  className="px-6 py-1.5 bg-[#4E8476] hover:bg-[#3d6b5f] text-white rounded-sm cursor-pointer  text-sm  transition-colors"
+                  className="px-6 py-1.5 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-sm cursor-pointer  text-sm  transition-colors"
                 >
                   {t("common.save")}
                 </button>
@@ -987,7 +987,7 @@ export function SharedTable({
                     }
                   }}
                   disabled={selectedRows.size === 0}
-                  className="flex items-center gap-2 px-4 py-1.5 text-sm text-white bg-[#4E8476] hover:bg-[#3d6b5f] rounded-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 px-4 py-1.5 text-sm text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] rounded-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <svg
                     className="w-4 h-4"
@@ -1122,7 +1122,7 @@ export function SharedTable({
                           className={cn(
                             "w-full px-4 py-2 text-sm text-left hover:bg-gray-50 transition-colors",
                             currentStatus === "pending" &&
-                              "bg-[#4E8476]/10 text-[#4E8476] font-medium",
+                              "bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-medium",
                             isRTL && "text-right"
                           )}
                         >
@@ -1138,7 +1138,7 @@ export function SharedTable({
                           className={cn(
                             "w-full px-4 py-2 text-sm text-left hover:bg-gray-50 transition-colors",
                             currentStatus === "history" &&
-                              "bg-[#4E8476]/10 text-[#4E8476] font-medium",
+                              "bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-medium",
                             isRTL && "text-right"
                           )}
                         >
@@ -1199,7 +1199,7 @@ export function SharedTable({
                           setInternalSelectedRows(newSelection);
                         }
                       }}
-                      className="w-4 h-4 rounded border-gray-300 text-[#4E8476] focus:ring-[#4E8476] cursor-pointer"
+                      className="w-4 h-4 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--color-primary)] cursor-pointer"
                     />
                   </th>
                 )}
@@ -1316,7 +1316,7 @@ export function SharedTable({
                         className={cn(
                           "absolute top-1/4 right-1 w-0.5 h-1/2 bg-gray-300 transition-colors",
                           "group-hover:bg-blue-400 group-hover:w-1",
-                          isResizing === "actions" && "bg-[#4E8476] w-1"
+                          isResizing === "actions" && "bg-[var(--color-primary)] w-1"
                         )}
                       />
 
@@ -1392,7 +1392,7 @@ export function SharedTable({
                           }, 0);
                         }}
                         className={cn(
-                          "w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:border-[#4E8476] focus:ring-1 focus:ring-[#4E8476]",
+                          "w-full px-2 py-1 text-xs border border-gray-300 rounded focus:outline-none focus:border-[var(--color-primary)] focus:ring-1 focus:ring-[var(--color-primary)]",
                           isRTL ? "text-right" : "text-left"
                         )}
                         dir={isRTL ? "rtl" : "ltr"}
@@ -1474,7 +1474,7 @@ export function SharedTable({
                                 setInternalSelectedRows(newSelection);
                               }
                             }}
-                            className="w-4 h-4 rounded border-gray-300 text-[#4E8476] focus:ring-[#4E8476] cursor-pointer"
+                            className="w-4 h-4 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--color-primary)] cursor-pointer"
                           />
                         </td>
                       )}
@@ -1845,7 +1845,7 @@ export function SharedTable({
           <div className="mt-4 flex items-center justify-center">
             <button
               onClick={onAddNewRow}
-              className="inline-flex text-sm items-center justify-center  gap-2 px-4 bg-[#4E8476] hover:bg-[#3d6b5f] py-2  rounded-lg text-white transition-colors"
+              className="inline-flex text-sm items-center justify-center  gap-2 px-4 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] py-2  rounded-lg text-white transition-colors"
             >
               <svg
                 className="w-4 h-4"
@@ -1886,7 +1886,7 @@ export function SharedTable({
                   disabled={!canGoFirst}
                   aria-label={t("common.first")}
                   className={cn(
-                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[#4E8476] hover:border-[#4E8476] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
+                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
                   )}
                 >
                   <ArrowLeftIcon
@@ -1901,7 +1901,7 @@ export function SharedTable({
                   disabled={!canGoPrevious}
                   aria-label={t("common.back")}
                   className={cn(
-                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[#4E8476] hover:border-[#4E8476] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
+                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
                   )}
                 >
                   <ArrowLeftIcon
@@ -1923,8 +1923,8 @@ export function SharedTable({
                         className={cn(
                           "px-3 py-2 text-sm border rounded-sm transition-colors",
                           currentPage === page
-                            ? "bg-[#4E8476] border-[#4E8476] text-white"
-                            : "border-[#EEEEEE] text-[#282828] hover:bg-[#4E8476] hover:border-[#4E8476] hover:text-white"
+                            ? "bg-[var(--color-primary)] border-[var(--color-primary)] text-white"
+                            : "border-[#EEEEEE] text-[#282828] hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white"
                         )}
                       >
                         {page}
@@ -1939,7 +1939,7 @@ export function SharedTable({
                   disabled={!canGoNext}
                   aria-label={t("common.next")}
                   className={cn(
-                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[#4E8476] hover:border-[#4E8476] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
+                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
                   )}
                 >
                   {t("common.next")}
@@ -1954,7 +1954,7 @@ export function SharedTable({
                   disabled={!canGoLast}
                   aria-label={t("common.last")}
                   className={cn(
-                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[#4E8476] hover:border-[#4E8476] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
+                    "flex items-center gap-1 px-3 py-2 text-sm border border-[#EEEEEE] text-[#282828] rounded-sm hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:text-[#282828] disabled:hover:border-[#EEEEEE]"
                   )}
                 >
                   {t("common.last")}

@@ -356,7 +356,7 @@ export default function Reports() {
       <div
         className={cn(
           "flex justify-between items-center mb-6",
-          isRTL && "flex-row-reverse"
+          
         )}
       >
         <h1

@@ -506,7 +506,7 @@ export default function AllTransfers() {
               {t("common.filters")}
             </span>
             {hasActiveFilters && (
-              <span className="bg-[#4E8476] text-white text-xs px-2 py-0.5 rounded-full">
+              <span className="bg-[var(--color-primary)] text-white text-xs px-2 py-0.5 rounded-full">
                 {t("common.active")}
               </span>
             )}
@@ -553,7 +553,7 @@ export default function AllTransfers() {
                     control: (base) => ({
                       ...base,
                       borderColor: "#e5e7eb",
-                      "&:hover": { borderColor: "#4E8476" },
+                      "&:hover": { borderColor: "var(--color-primary)" },
                     }),
                   }}
                 />
@@ -580,7 +580,7 @@ export default function AllTransfers() {
                     control: (base) => ({
                       ...base,
                       borderColor: "#e5e7eb",
-                      "&:hover": { borderColor: "#4E8476" },
+                      "&:hover": { borderColor: "var(--color-primary)" },
                     }),
                   }}
                 />
@@ -605,7 +605,7 @@ export default function AllTransfers() {
                     control: (base) => ({
                       ...base,
                       borderColor: "#e5e7eb",
-                      "&:hover": { borderColor: "#4E8476" },
+                      "&:hover": { borderColor: "var(--color-primary)" },
                     }),
                   }}
                 />
@@ -623,7 +623,7 @@ export default function AllTransfers() {
                     setSelectedStartDate(e.target.value || undefined);
                     setCurrentPage(1);
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:border-transparent text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent text-sm"
                 />
               </div>
 
@@ -639,7 +639,7 @@ export default function AllTransfers() {
                     setSelectedEndDate(e.target.value || undefined);
                     setCurrentPage(1);
                   }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#4E8476] focus:border-transparent text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent text-sm"
                 />
               </div>
             </div>
@@ -663,7 +663,7 @@ export default function AllTransfers() {
       {/* Transfer Table */}
       {isLoading ? (
         <div className="flex justify-center items-center h-64 bg-white rounded-lg">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#4E8476]"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[var(--color-primary)]"></div>
           <span className="ml-2 text-gray-600">
             {t("messages.loadingTransfers")}
           </span>
@@ -895,11 +895,11 @@ export default function AllTransfers() {
                 }
               }}
               disabled={isLoadingOracleStatus}
-              className="px-4 py-2 text-sm font-medium text-[#4E8476] bg-[#4E8476]/10 border border-[#4E8476] rounded-md hover:bg-[#4E8476]/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              className="px-4 py-2 text-sm font-medium text-[var(--color-primary)] bg-[var(--color-primary)]/10 border border-[var(--color-primary)] rounded-md hover:bg-[var(--color-primary)]/20 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {isLoadingOracleStatus ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4E8476]"></div>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-[var(--color-primary)]"></div>
                   <span>{t("oracle.refreshing")}</span>
                 </>
               ) : (

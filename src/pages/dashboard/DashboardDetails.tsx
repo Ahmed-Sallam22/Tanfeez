@@ -68,7 +68,7 @@ export default function DashboardDetails() {
         return {
           title: t("home.capex"),
           dataKey: "Copex",
-          color: "#4E8476",
+          color: "var(--color-primary)",
         };
       default:
         return {

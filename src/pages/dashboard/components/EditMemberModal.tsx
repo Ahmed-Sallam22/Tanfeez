@@ -141,7 +141,7 @@ export default function EditMemberModal({
                   return (
                     <label
                       key={role.id}
-                      className="flex items-center gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#4E8476] transition-all"
+                      className="flex items-center gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[var(--color-primary)] transition-all"
                     >
                       <input
                         type="checkbox"
@@ -151,7 +151,7 @@ export default function EditMemberModal({
                           !selectedRoleIds.includes(role.id) &&
                           selectedRoleIds.length >= 2
                         }
-                        className="h-4 w-4 text-[#4E8476] focus:ring-[#4E8476]"
+                        className="h-4 w-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                       />
                       <div className="flex-1">
                         <p className="font-semibold text-gray-800">{role.role_name}</p>
@@ -169,28 +169,28 @@ export default function EditMemberModal({
               {t("securityGroups.segmentAccess")} *
             </label>
             <div className="space-y-3">
-              <label className="flex items-center gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#4E8476] transition-all">
+              <label className="flex items-center gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[var(--color-primary)] transition-all">
                 <input
                   type="radio"
                   name="accessMode"
                   value="all_group_segments"
                   checked={accessMode === "all_group_segments"}
                   onChange={() => setAccessMode("all_group_segments")}
-                  className="h-4 w-4 text-[#4E8476] focus:ring-[#4E8476]"
+                  className="h-4 w-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                 />
                 <span className="text-sm font-medium text-gray-800">
                   {t("securityGroups.accessAllSegments")}
                 </span>
               </label>
 
-              <label className="flex items-center gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[#4E8476] transition-all">
+              <label className="flex items-center gap-3 p-3 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-[var(--color-primary)] transition-all">
                 <input
                   type="radio"
                   name="accessMode"
                   value="restricted_segments"
                   checked={accessMode === "restricted_segments"}
                   onChange={() => setAccessMode("restricted_segments")}
-                  className="h-4 w-4 text-[#4E8476] focus:ring-[#4E8476]"
+                  className="h-4 w-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                 />
                 <span className="text-sm font-medium text-gray-800">
                   {t("securityGroups.restrictAccess")}
@@ -218,7 +218,7 @@ export default function EditMemberModal({
                         type="checkbox"
                         checked={selectedSegmentIds.includes(segment.id)}
                         onChange={() => toggleSegment(segment.id)}
-                        className="h-4 w-4 text-[#4E8476] focus:ring-[#4E8476]"
+                        className="h-4 w-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                       />
                       <div>
                         <p className="font-medium text-gray-800 text-sm">
@@ -248,7 +248,7 @@ export default function EditMemberModal({
               onChange={(e) => setNotes(e.target.value)}
               placeholder={t("securityGroups.addNotesPlaceholder")}
               rows={3}
-              className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4E8476] focus:border-[#4E8476] transition-all"
+              className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)] transition-all"
             />
           </div>
 
@@ -264,7 +264,7 @@ export default function EditMemberModal({
             <Button
               type="submit"
               disabled={isLoading}
-              className="px-6 py-2 bg-[#4E8476] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
+              className="px-6 py-2 bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e] disabled:opacity-50"
             >
               {isLoading ? t("common.saving") : t("common.save")}
             </Button>

@@ -556,7 +556,7 @@ export default function PendingTransferDetails() {
       >
         <button
           onClick={handleBack}
-          className="flex items-center gap-2  cursor-pointer py-2 text-lg text-[#4E8476] hover:text-[#4E8476] "
+          className="flex items-center gap-2  cursor-pointer py-2 text-lg text-[var(--color-primary)] hover:text-[var(--color-primary)] "
         >
           {t("pendingTransferDetails.title")}
         </button>

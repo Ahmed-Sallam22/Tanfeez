@@ -71,7 +71,7 @@ export default function DashboardHeader() {
       <div className="flex flex-col gap-1">
         <h2
           className={cn(
-            "text-xl sm:text-3xl font-semibold text-[#4E8476]",
+            "text-xl sm:text-3xl font-semibold text-[var(--color-primary)]",
             isRTL ? "text-right" : "text-left"
           )}
         >

@@ -6,6 +6,7 @@ import { useLogout } from "../hooks/useLogout";
 import { useUserRole } from "../features/auth/hooks";
 import { useTranslation } from "react-i18next";
 import { useGetUserProfileQuery } from "../api/auth.api";
+import { useTheme } from "@/hooks/useTheme";
 
 // Custom SVG Icons
 const DashboardIcon = ({ className }: { className?: string }) => (
@@ -980,6 +981,8 @@ export default function Sidebar({
     isError || isLoading ? [] : userAbilities,
     t,
   );
+    const { mainLogo } = useTheme();
+  
 
   return (
     <aside className="w-full h-full bg-white rounded-2xl overflow-y-auto overflow-x-hidden flex flex-col">
@@ -987,7 +990,7 @@ export default function Sidebar({
       <div className="relative flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 lg:border-none flex-shrink-0">
         <div className="flex items-start min-w-0 flex-1">
           <img
-            src={Tanfeez}
+            src={mainLogo || Tanfeez}
             alt="Tanfeez"
             className="w-[70%] mx-auto max-w-[130px] sm:max-w-none"
             width={130}
@@ -1043,7 +1046,7 @@ export default function Sidebar({
                       }}
                       className={`flex items-center ${
                         desktopHidden ? "justify-center" : "gap-2 sm:gap-3"
-                      } px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-[13px] sm:text-[14px] font-medium transition-colors text-[#545454] hover:bg-[#4E8476]/10 hover:text-[#4E8476] w-full text-left`}
+                      } px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-[13px] sm:text-[14px] font-medium transition-colors text-[#545454] hover:bg-[var(--color-primary)]/10 hover:text-[var(--color-primary)] w-full text-left`}
                     >
                       <Icon className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
                       {/* hide label when collapsed */}
@@ -1080,8 +1083,8 @@ export default function Sidebar({
                         } px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg text-[13px] sm:text-[14px] font-medium transition-colors
                           ${
                             finalIsActive
-                              ? "bg-[#4E8476]/10 text-[#4E8476] border-r-2 sm:border-r-4 border-[#4E8476]"
-                              : "text-[#545454] hover:bg-[#4E8476]/10 hover:text-[#4E8476]"
+                              ? "bg-[var(--color-primary)]/10 text-[var(--color-primary)] border-r-2 sm:border-r-4 border-[var(--color-primary)]"
+                              : "text-[#545454] hover:bg-[var(--color-primary)]/10 hover:text-[var(--color-primary)]"
                           }`;
                       }}
                       onClick={onClose}

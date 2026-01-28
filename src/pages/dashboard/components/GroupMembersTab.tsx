@@ -57,7 +57,7 @@ export default function GroupMembersTab({ groupId, onUpdate }: GroupMembersTabPr
         </h3>
         <Button
           onClick={() => setIsAddModalOpen(true)}
-          className="bg-[#4E8476] text-white hover:bg-[#3d6a5e]"
+          className="bg-[var(--color-primary)] text-white hover:bg-[#3d6a5e]"
         >
           <Plus className="h-4 w-4 mr-2" />
           {t("securityGroups.addMember")}
@@ -74,7 +74,7 @@ export default function GroupMembersTab({ groupId, onUpdate }: GroupMembersTabPr
           {members.map((member) => (
             <div
               key={member.membership_id}
-              className="p-4 border-2 border-gray-200 rounded-xl hover:border-[#4E8476]/50 transition-all bg-gradient-to-r from-white to-gray-50"
+              className="p-4 border-2 border-gray-200 rounded-xl hover:border-[var(--color-primary)]/50 transition-all bg-gradient-to-r from-white to-gray-50"
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
@@ -96,7 +96,7 @@ export default function GroupMembersTab({ groupId, onUpdate }: GroupMembersTabPr
                       member.assigned_roles.map((role) => (
                         <span
                           key={role.security_group_role_id}
-                          className="px-3 py-1 bg-[#4E8476]/10 text-[#4E8476] text-xs font-bold rounded-full"
+                          className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-xs font-bold rounded-full"
                         >
                           👤 {role.role_name}
                         </span>

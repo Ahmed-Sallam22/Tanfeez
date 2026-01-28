@@ -190,7 +190,7 @@ export default function DocumentIO() {
           </button> */}
           <button
             onClick={handleUploadInvoice}
-            className="flex items-center gap-2 px-4 py-2 bg-[#4E8476] hover:bg-[#3d6b5f] text-white rounded-lg transition-colors font-medium text-sm"
+            className="flex items-center gap-2 px-4 py-2 bg-[var(--color-primary)] hover:bg-[var(--color-primary-hover)] text-white rounded-lg transition-colors font-medium text-sm"
           >
             <Upload className="h-4 w-4" />
             Upload Invoice
@@ -273,7 +273,7 @@ export default function DocumentIO() {
       {isDeleting && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl p-8 shadow-2xl flex flex-col items-center gap-4">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-[#4E8476]"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-[var(--color-primary)]"></div>
             <p className="text-lg font-medium text-gray-900">
               Deleting Invoice...
             </p>

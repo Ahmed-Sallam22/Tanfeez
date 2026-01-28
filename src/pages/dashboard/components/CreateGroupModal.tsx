@@ -35,10 +35,10 @@ export default function CreateGroupModal({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full border-2 border-[#4E8476]/20">
+      <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full border-2 border-[var(--color-primary)]/20">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] bg-clip-text text-transparent">
             {t("securityGroups.createNewGroup")}
           </h2>
           <button
@@ -78,7 +78,7 @@ export default function CreateGroupModal({
               }
               placeholder={t("securityGroups.descriptionPlaceholder")}
               rows={3}
-              className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-[#4E8476] focus:outline-none transition-colors resize-none"
+              className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-[var(--color-primary)] focus:outline-none transition-colors resize-none"
             />
           </div>
 
@@ -90,7 +90,7 @@ export default function CreateGroupModal({
               onChange={(e) =>
                 setFormData({ ...formData, is_active: e.target.checked })
               }
-              className="w-5 h-5 text-[#4E8476] border-gray-300 rounded focus:ring-[#4E8476]"
+              className="w-5 h-5 text-[var(--color-primary)] border-gray-300 rounded focus:ring-[var(--color-primary)]"
             />
             <label
               htmlFor="is_active"
@@ -111,7 +111,7 @@ export default function CreateGroupModal({
             </Button>
             <Button
               type="submit"
-              className="flex-1 bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] text-white hover:from-[#3d6a5e] hover:to-[#2d5246]"
+              className="flex-1 bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] text-white hover:from-[#3d6a5e] hover:to-[#2d5246]"
             >
               {t("common.create")}
             </Button>

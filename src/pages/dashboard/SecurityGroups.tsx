@@ -82,7 +82,7 @@ export default function SecurityGroups() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
             <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-3">
-              <Shield className="h-8 w-8 text-[#4E8476]" />
+              <Shield className="h-8 w-8 text-[var(--color-primary)]" />
               {t("securityGroups.title")}
             </h1>
             <p className="text-gray-600 mt-2">
@@ -91,7 +91,7 @@ export default function SecurityGroups() {
           </div>
           <Button
             onClick={() => setIsCreateModalOpen(true)}
-            className="bg-gradient-to-r from-[#4E8476] to-[#3d6a5e] hover:from-[#3d6a5e] hover:to-[#2d5246] text-white px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all"
+            className="bg-gradient-to-r from-[var(--color-primary)] to-[#3d6a5e] hover:from-[#3d6a5e] hover:to-[#2d5246] text-white px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-all"
           >
             <Plus className="h-5 w-5 mr-2" />
             {t("securityGroups.createGroup")}
@@ -100,7 +100,7 @@ export default function SecurityGroups() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-6">
-          <div className="bg-gradient-to-br from-[#4E8476] to-[#3d6a5e] rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all">
+          <div className="bg-gradient-to-br from-[var(--color-primary)] to-[#3d6a5e] rounded-xl p-4 text-white shadow-md hover:shadow-lg transition-all">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-white/80 text-sm">{t("securityGroups.totalGroups")}</p>
@@ -147,7 +147,7 @@ export default function SecurityGroups() {
         {/* Groups List */}
         <div className="lg:col-span-1 bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
           <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <Shield className="h-6 w-6 text-[#4E8476]" />
+            <Shield className="h-6 w-6 text-[var(--color-primary)]" />
             {t("securityGroups.groupsList")}
           </h2>
 
@@ -166,7 +166,7 @@ export default function SecurityGroups() {
               <p className="text-gray-500">{t("securityGroups.noGroups")}</p>
               <Button
                 onClick={() => setIsCreateModalOpen(true)}
-                className="mt-4 bg-[#4E8476] text-white"
+                className="mt-4 bg-[var(--color-primary)] text-white"
               >
                 {t("securityGroups.createFirstGroup")}
               </Button>
@@ -179,8 +179,8 @@ export default function SecurityGroups() {
                   onClick={() => setSelectedGroupId(group.id)}
                   className={`p-4 rounded-xl border-2 cursor-pointer transition-all ${
                     selectedGroupId === group.id
-                      ? "border-[#4E8476] bg-[#4E8476]/5 shadow-md"
-                      : "border-gray-200 hover:border-[#4E8476]/50 hover:bg-gray-50"
+                      ? "border-[var(--color-primary)] bg-[var(--color-primary)]/5 shadow-md"
+                      : "border-gray-200 hover:border-[var(--color-primary)]/50 hover:bg-gray-50"
                   }`}
                 >
                   <div className="flex items-start justify-between">
