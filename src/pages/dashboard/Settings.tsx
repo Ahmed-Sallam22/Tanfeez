@@ -31,7 +31,6 @@ export default function Settings() {
   // Modal states
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [showResetModal, setShowResetModal] = useState(false);
-  const [showRefreshModal, setShowRefreshModal] = useState(false);
 
   const logoInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
@@ -99,19 +98,21 @@ export default function Settings() {
       formData.append("color", color);
       formData.append("hover_color", hoverColor);
 
-      // Send logo - either new file, current URL, or null
+      // Send logo - either new file or null
       if (logoFile) {
         formData.append("main_logo", logoFile);
-      } else if (logoPreview) {
+      } else if (logoPreview && !logoPreview.startsWith("/src/assets/")) {
+        // Only send if it's not the default preview
         formData.append("main_logo", logoPreview);
       } else {
         formData.append("main_logo", "null");
       }
 
-      // Send cover - either new file, current URL, or null
+      // Send cover - either new file or null
       if (coverFile) {
         formData.append("main_cover", coverFile);
-      } else if (coverPreview) {
+      } else if (coverPreview && !coverPreview.startsWith("/src/assets/")) {
+        // Only send if it's not the default preview
         formData.append("main_cover", coverPreview);
       } else {
         formData.append("main_cover", "null");
@@ -122,17 +123,22 @@ export default function Settings() {
       setShowSaveModal(false);
       toast.success(t("settings.savedSuccessfully"));
 
-      // Show refresh modal
-      setShowRefreshModal(true);
+      // Update CSS variables immediately
+      document.documentElement.style.setProperty("--color-primary", color);
+      document.documentElement.style.setProperty(
+        "--color-primary-hover",
+        hoverColor,
+      );
+
+      // Auto refresh to apply all changes
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } catch (error) {
       console.error("Failed to save settings:", error);
       toast.error(t("settings.saveFailed"));
       setShowSaveModal(false);
     }
-  };
-
-  const handleRefreshConfirm = () => {
-    window.location.reload();
   };
 
   const handleReset = () => {
@@ -142,10 +148,10 @@ export default function Settings() {
 
   const handleResetConfirm = async () => {
     try {
-      // Create FormData with null values to reset to defaults
+      // Create FormData with default color values and null for images
       const formData = new FormData();
-      formData.append("color", "null");
-      formData.append("hover_color", "null");
+      formData.append("color", DEFAULT_COLOR);
+      formData.append("hover_color", DEFAULT_HOVER_COLOR);
       formData.append("main_logo", "null");
       formData.append("main_cover", "null");
 
@@ -169,8 +175,20 @@ export default function Settings() {
           "Settings reset to defaults successfully!",
       );
 
-      // Show refresh modal after reset
-      setShowRefreshModal(true);
+      // Update CSS variables immediately
+      document.documentElement.style.setProperty(
+        "--color-primary",
+        DEFAULT_COLOR,
+      );
+      document.documentElement.style.setProperty(
+        "--color-primary-hover",
+        DEFAULT_HOVER_COLOR,
+      );
+
+      // Auto refresh to apply all changes
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } catch (error) {
       console.error("Failed to reset settings:", error);
       toast.error(t("settings.resetFailed") || "Failed to reset settings");
@@ -427,20 +445,6 @@ export default function Settings() {
         cancelText={t("common.cancel") || "Cancel"}
         type="warning"
         isLoading={isUpdating}
-      />
-
-      {/* Refresh Confirmation Modal */}
-      <ConfirmationModal
-        isOpen={showRefreshModal}
-        onClose={() => setShowRefreshModal(false)}
-        onConfirm={handleRefreshConfirm}
-        message={
-          t("settings.refreshPrompt") ||
-          "Settings saved successfully! Please refresh the page to see the changes."
-        }
-        confirmText={t("common.refresh") || "Refresh Now"}
-        cancelText={t("common.later") || "Later"}
-        type="success"
       />
     </div>
   );
