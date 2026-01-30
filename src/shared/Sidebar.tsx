@@ -981,21 +981,22 @@ export default function Sidebar({
     isError || isLoading ? [] : userAbilities,
     t,
   );
-    const { mainLogo } = useTheme();
-  
+  const { mainLogo } = useTheme();
 
   return (
     <aside className="w-full h-full bg-white rounded-2xl overflow-y-auto overflow-x-hidden flex flex-col">
       {/* Header */}
       <div className="relative flex items-center justify-between p-3 sm:p-4 border-b border-gray-200 lg:border-none flex-shrink-0">
         <div className="flex items-start min-w-0 flex-1">
-          <img
-            src={mainLogo || Tanfeez}
-            alt="Tanfeez"
-            className="w-[70%] mx-auto max-w-[130px] sm:max-w-none"
-            width={130}
-            height={40}
-          />
+          {(mainLogo || Tanfeez) && (
+            <img
+              src={mainLogo || Tanfeez}
+              alt="Tanfeez"
+              className="w-[70%] mx-auto max-w-[130px] sm:max-w-none"
+              width={130}
+              height={40}
+            />
+          )}
         </div>
 
         {/* Close (mobile) */}
