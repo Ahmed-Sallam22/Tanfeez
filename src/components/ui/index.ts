@@ -7,3 +7,4 @@ export { MicrosoftIcon } from './MicrosoftIcon';
 export { TanfeezLoader } from './TanfeezLoader';
 export { RichTextEditor } from './RichTextEditor';
 export { Toggle } from './Toggle';
+export { ConfirmationModal } from './ConfirmationModal';

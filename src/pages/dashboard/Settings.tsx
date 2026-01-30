@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "react-hot-toast";
-import { Upload, Image as ImageIcon, RefreshCw, Save } from "lucide-react";
-import { Button } from "../../components/ui";
+import { Upload, Image as ImageIcon, RefreshCw, Save, X } from "lucide-react";
+import { Button, ConfirmationModal } from "../../components/ui";
 import {
   useGetThemeSettingsQuery,
   useUpdateThemeSettingsMutation,
@@ -27,6 +27,11 @@ export default function Settings() {
   const [coverPreview, setCoverPreview] = useState<string>(DEFAULT_COVER);
   const [logoFile, setLogoFile] = useState<File | null>(null);
   const [coverFile, setCoverFile] = useState<File | null>(null);
+
+  // Modal states
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [showRefreshModal, setShowRefreshModal] = useState(false);
 
   const logoInputRef = useRef<HTMLInputElement>(null);
   const coverInputRef = useRef<HTMLInputElement>(null);
@@ -81,7 +86,12 @@ export default function Settings() {
     }
   };
 
-  const handleSave = async () => {
+  const handleSaveClick = () => {
+    // Show save confirmation modal
+    setShowSaveModal(true);
+  };
+
+  const handleSaveConfirm = async () => {
     try {
       const formData = new FormData();
 
@@ -89,52 +99,55 @@ export default function Settings() {
       formData.append("color", color);
       formData.append("hover_color", hoverColor);
 
-      // Send logo - either new file or current URL
+      // Send logo - either new file, current URL, or null
       if (logoFile) {
         formData.append("main_logo", logoFile);
       } else if (logoPreview) {
         formData.append("main_logo", logoPreview);
+      } else {
+        formData.append("main_logo", "null");
       }
 
-      // Send cover - either new file or current URL
+      // Send cover - either new file, current URL, or null
       if (coverFile) {
         formData.append("main_cover", coverFile);
       } else if (coverPreview) {
         formData.append("main_cover", coverPreview);
+      } else {
+        formData.append("main_cover", "null");
       }
 
       await updateThemeSettings(formData).unwrap();
+
+      setShowSaveModal(false);
       toast.success(t("settings.savedSuccessfully"));
 
-      // Prompt user to refresh
-      const shouldRefresh = window.confirm(t("settings.refreshPrompt"));
-      if (shouldRefresh) {
-        window.location.reload();
-      }
+      // Show refresh modal
+      setShowRefreshModal(true);
     } catch (error) {
       console.error("Failed to save settings:", error);
       toast.error(t("settings.saveFailed"));
+      setShowSaveModal(false);
     }
   };
 
-  const handleReset = async () => {
-    // Show confirmation popup
-    const confirmReset = window.confirm(
-      t("settings.resetConfirmation") ||
-        "Are you sure you want to reset to default settings? This will restore all colors and images to their original values.",
-    );
+  const handleRefreshConfirm = () => {
+    window.location.reload();
+  };
 
-    if (!confirmReset) {
-      return; // User cancelled
-    }
+  const handleReset = () => {
+    // Show reset confirmation modal
+    setShowResetModal(true);
+  };
 
+  const handleResetConfirm = async () => {
     try {
-      // Create FormData with default values
+      // Create FormData with null values to reset to defaults
       const formData = new FormData();
-      formData.append("color", DEFAULT_COLOR);
-      formData.append("hover_color", DEFAULT_HOVER_COLOR);
-      formData.append("main_logo", DEFAULT_LOGO);
-      formData.append("main_cover", DEFAULT_COVER);
+      formData.append("color", "null");
+      formData.append("hover_color", "null");
+      formData.append("main_logo", "null");
+      formData.append("main_cover", "null");
 
       // Send to backend
       await updateThemeSettings(formData).unwrap();
@@ -149,19 +162,19 @@ export default function Settings() {
       if (logoInputRef.current) logoInputRef.current.value = "";
       if (coverInputRef.current) coverInputRef.current.value = "";
 
+      setShowResetModal(false);
+
       toast.success(
         t("settings.resetSuccessfully") ||
           "Settings reset to defaults successfully!",
       );
 
-      // Prompt user to refresh
-      const shouldRefresh = window.confirm(t("settings.refreshPrompt"));
-      if (shouldRefresh) {
-        window.location.reload();
-      }
+      // Show refresh modal after reset
+      setShowRefreshModal(true);
     } catch (error) {
       console.error("Failed to reset settings:", error);
       toast.error(t("settings.resetFailed") || "Failed to reset settings");
+      setShowResetModal(false);
     }
   };
 
@@ -266,12 +279,23 @@ export default function Settings() {
             </label>
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
               {logoPreview && (
-                <div className="mb-3 flex justify-center">
+                <div className="mb-3 flex justify-center relative">
                   <img
                     src={logoPreview}
                     alt="Logo Preview"
                     className="h-20 w-auto object-contain"
                   />
+                  <button
+                    onClick={() => {
+                      setLogoPreview("");
+                      setLogoFile(null);
+                      if (logoInputRef.current) logoInputRef.current.value = "";
+                    }}
+                    className="absolute top-0 right-0 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                    title="Remove logo"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
               )}
               <input
@@ -302,12 +326,24 @@ export default function Settings() {
             </label>
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
               {coverPreview && (
-                <div className="mb-3 flex justify-center">
+                <div className="mb-3 flex justify-center relative">
                   <img
                     src={coverPreview}
                     alt="Cover Preview"
                     className="h-32 w-full object-cover rounded"
                   />
+                  <button
+                    onClick={() => {
+                      setCoverPreview("");
+                      setCoverFile(null);
+                      if (coverInputRef.current)
+                        coverInputRef.current.value = "";
+                    }}
+                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 hover:bg-red-600 transition-colors"
+                    title="Remove cover"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
                 </div>
               )}
               <input
@@ -345,7 +381,7 @@ export default function Settings() {
           {t("settings.reset")}
         </Button>
         <Button
-          onClick={handleSave}
+          onClick={handleSaveClick}
           disabled={isUpdating}
           className="inline-flex items-center gap-2"
         >
@@ -362,6 +398,50 @@ export default function Settings() {
           )}
         </Button>
       </div>
+
+      {/* Save Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showSaveModal}
+        onClose={() => setShowSaveModal(false)}
+        onConfirm={handleSaveConfirm}
+        message={
+          t("settings.saveConfirmation") ||
+          "Are you sure you want to save these settings? This will update the theme configuration."
+        }
+        confirmText={t("settings.save") || "Save"}
+        cancelText={t("common.cancel") || "Cancel"}
+        type="info"
+        isLoading={isUpdating}
+      />
+
+      {/* Reset Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showResetModal}
+        onClose={() => setShowResetModal(false)}
+        onConfirm={handleResetConfirm}
+        message={
+          t("settings.resetConfirmation") ||
+          "Are you sure you want to reset to default settings? This will restore all colors and images to their original values."
+        }
+        confirmText={t("settings.reset") || "Reset"}
+        cancelText={t("common.cancel") || "Cancel"}
+        type="warning"
+        isLoading={isUpdating}
+      />
+
+      {/* Refresh Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={showRefreshModal}
+        onClose={() => setShowRefreshModal(false)}
+        onConfirm={handleRefreshConfirm}
+        message={
+          t("settings.refreshPrompt") ||
+          "Settings saved successfully! Please refresh the page to see the changes."
+        }
+        confirmText={t("common.refresh") || "Refresh Now"}
+        cancelText={t("common.later") || "Later"}
+        type="success"
+      />
     </div>
   );
 }
