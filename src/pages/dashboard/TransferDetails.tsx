@@ -46,9 +46,9 @@ interface TransferTableRow {
   // Validation errors
   validation_errors?: string[];
   // New budget fields
-  commitments?: string;
-  obligations?: string;
-  other_consumption?: string;
+  commitments?: string | number;
+  obligations?: string | number;
+  other_consumption?: string | number;
   // New budget tracking fields
   total_budget?: number;
   initial_budget?: number;
@@ -193,7 +193,7 @@ export default function TransferDetails() {
             : "",
           validation_errors: transfer.validation_errors,
           commitments: primaryBudget
-            ? primaryBudget.Commitments.toString()
+            ? primaryBudget?.Commitments
             : transfer.commitments || "0",
           obligations: primaryBudget
             ? primaryBudget.Obligation.toString()
