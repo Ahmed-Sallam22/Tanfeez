@@ -38,12 +38,15 @@ const setCachedTheme = (theme: Partial<ThemeContextType>) => {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   // Get cached theme
   const cachedTheme = getCachedTheme();
-  
+
   // Only fetch if we don't have cached data
-  const { data: themeSettings, isLoading } = useGetThemeSettingsQuery(undefined, {
-    // Use cached data if available
-    skip: false,
-  });
+  const { data: themeSettings, isLoading } = useGetThemeSettingsQuery(
+    undefined,
+    {
+      // Use cached data if available
+      skip: false,
+    },
+  );
 
   const theme: ThemeContextType = {
     color: themeSettings?.color || cachedTheme?.color || DEFAULT_THEME.color,
@@ -52,7 +55,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       cachedTheme?.hoverColor ||
       DEFAULT_THEME.hoverColor,
     mainLogo:
-      themeSettings?.main_logo || cachedTheme?.mainLogo || DEFAULT_THEME.mainLogo,
+      themeSettings?.main_logo ||
+      cachedTheme?.mainLogo ||
+      DEFAULT_THEME.mainLogo,
     mainCover:
       themeSettings?.main_cover ||
       cachedTheme?.mainCover ||
@@ -78,7 +83,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     document.documentElement.style.setProperty("--color-primary", theme.color);
     document.documentElement.style.setProperty(
       "--color-primary-hover",
-      theme.hoverColor
+      theme.hoverColor,
     );
   }, [theme.color, theme.hoverColor]);
 
